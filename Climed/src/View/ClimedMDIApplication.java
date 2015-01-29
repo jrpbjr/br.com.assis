@@ -27,9 +27,9 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane1 = new javax.swing.JSplitPane();
-        desktopPane = new javax.swing.JDesktopPane();
-        jPanel1 = new javax.swing.JPanel();
+        jSplitPaneMdi = new javax.swing.JSplitPane();
+        desktopPaneMdi = new javax.swing.JDesktopPane();
+        jPanelInformacao = new javax.swing.JPanel();
         menuBar = new javax.swing.JMenuBar();
         agendaMenu = new javax.swing.JMenu();
         agendamentoMenuItem = new javax.swing.JMenuItem();
@@ -46,23 +46,23 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jSplitPane1.setResizeWeight(0.1);
-        jSplitPane1.setOneTouchExpandable(true);
-        jSplitPane1.setPreferredSize(new java.awt.Dimension(107, 403));
-        jSplitPane1.setRightComponent(desktopPane);
+        jSplitPaneMdi.setResizeWeight(0.1);
+        jSplitPaneMdi.setOneTouchExpandable(true);
+        jSplitPaneMdi.setPreferredSize(new java.awt.Dimension(107, 403));
+        jSplitPaneMdi.setRightComponent(desktopPaneMdi);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelInformacaoLayout = new javax.swing.GroupLayout(jPanelInformacao);
+        jPanelInformacao.setLayout(jPanelInformacaoLayout);
+        jPanelInformacaoLayout.setHorizontalGroup(
+            jPanelInformacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelInformacaoLayout.setVerticalGroup(
+            jPanelInformacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 401, Short.MAX_VALUE)
         );
 
-        jSplitPane1.setLeftComponent(jPanel1);
+        jSplitPaneMdi.setLeftComponent(jPanelInformacao);
 
         agendaMenu.setMnemonic('f');
         agendaMenu.setText("Agenda");
@@ -126,11 +126,11 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE)
+            .addComponent(jSplitPaneMdi, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jSplitPaneMdi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -183,12 +183,12 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JMenuItem deleteMenuItem;
-    private javax.swing.JDesktopPane desktopPane;
+    private javax.swing.JDesktopPane desktopPaneMdi;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuItem horarioMedicoMenuItem;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JPanel jPanelInformacao;
+    private javax.swing.JSplitPane jSplitPaneMdi;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem pasteMenuItem;
     private javax.swing.JMenuItem sairMenuItem;
