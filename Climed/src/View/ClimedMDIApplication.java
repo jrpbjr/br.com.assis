@@ -30,10 +30,9 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
         desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
         agendaMenu = new javax.swing.JMenu();
-        openMenuItem = new javax.swing.JMenuItem();
-        saveMenuItem = new javax.swing.JMenuItem();
-        saveAsMenuItem = new javax.swing.JMenuItem();
-        exitMenuItem = new javax.swing.JMenuItem();
+        agendamentoMenuItem = new javax.swing.JMenuItem();
+        horarioMedicoMenuItem = new javax.swing.JMenuItem();
+        sairMenuItem = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         cutMenuItem = new javax.swing.JMenuItem();
         copyMenuItem = new javax.swing.JMenuItem();
@@ -48,27 +47,22 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
         agendaMenu.setMnemonic('f');
         agendaMenu.setText("Agenda");
 
-        openMenuItem.setMnemonic('o');
-        openMenuItem.setText("Open");
-        agendaMenu.add(openMenuItem);
+        agendamentoMenuItem.setMnemonic('o');
+        agendamentoMenuItem.setText("Agendamento");
+        agendaMenu.add(agendamentoMenuItem);
 
-        saveMenuItem.setMnemonic('s');
-        saveMenuItem.setText("Save");
-        agendaMenu.add(saveMenuItem);
+        horarioMedicoMenuItem.setMnemonic('s');
+        horarioMedicoMenuItem.setText("Horário do Médico");
+        agendaMenu.add(horarioMedicoMenuItem);
 
-        saveAsMenuItem.setMnemonic('a');
-        saveAsMenuItem.setText("Save As ...");
-        saveAsMenuItem.setDisplayedMnemonicIndex(5);
-        agendaMenu.add(saveAsMenuItem);
-
-        exitMenuItem.setMnemonic('x');
-        exitMenuItem.setText("Exit");
-        exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        sairMenuItem.setMnemonic('x');
+        sairMenuItem.setText("Sair");
+        sairMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitMenuItemActionPerformed(evt);
+                sairMenuItemActionPerformed(evt);
             }
         });
-        agendaMenu.add(exitMenuItem);
+        agendaMenu.add(sairMenuItem);
 
         menuBar.add(agendaMenu);
 
@@ -126,9 +120,9 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
+    private void sairMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairMenuItemActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_exitMenuItemActionPerformed
+    }//GEN-LAST:event_sairMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,19 +162,18 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenu agendaMenu;
+    private javax.swing.JMenuItem agendamentoMenuItem;
     private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JMenuItem deleteMenuItem;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu editMenu;
-    private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu helpMenu;
+    private javax.swing.JMenuItem horarioMedicoMenuItem;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
-    private javax.swing.JMenuItem saveAsMenuItem;
-    private javax.swing.JMenuItem saveMenuItem;
+    private javax.swing.JMenuItem sairMenuItem;
     // End of variables declaration//GEN-END:variables
 
 }
