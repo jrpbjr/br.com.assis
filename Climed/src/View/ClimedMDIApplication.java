@@ -29,28 +29,23 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
 
         jSplitPaneMdi = new javax.swing.JSplitPane();
         desktopPaneMdi = new javax.swing.JDesktopPane();
-        financeiroMenu = new javax.swing.JPanel();
+        jPanelInformacao = new javax.swing.JPanel();
         menuBar = new javax.swing.JMenuBar();
         agendaMenu = new javax.swing.JMenu();
         agendamentoMenuItem = new javax.swing.JMenuItem();
         horarioMedicoMenuItem = new javax.swing.JMenuItem();
         sairMenuItem = new javax.swing.JMenuItem();
         CadastroMenu = new javax.swing.JMenu();
-        pacienteMenuItem = new javax.swing.JMenuItem();
-        medicoMenuItem = new javax.swing.JMenuItem();
-        convenioMenuItem = new javax.swing.JMenuItem();
-        especialidadeMenuItem = new javax.swing.JMenuItem();
-        estoqueMenuItem = new javax.swing.JMenuItem();
-        cadastroSeparator = new javax.swing.JPopupMenu.Separator();
-        calendarioMenuItem = new javax.swing.JMenuItem();
-        consultaCidMenuItem = new javax.swing.JMenuItem();
-        helpMenu = new javax.swing.JMenu();
-        grpfinanceiraMenuItem = new javax.swing.JMenuItem();
+        cadpacienteMenuItem = new javax.swing.JMenuItem();
+        cadmedicoMenuItem = new javax.swing.JMenuItem();
+        cadconvenioMenuItem = new javax.swing.JMenuItem();
+        cadespecialidadeMenuItem = new javax.swing.JMenuItem();
+        financeiroMenu = new javax.swing.JMenu();
+        grpdespesaMenuItem = new javax.swing.JMenuItem();
         despesaMenuItem = new javax.swing.JMenuItem();
-        grmdespesaMenuItem = new javax.swing.JMenuItem();
+        grtdespesaMenuItem = new javax.swing.JMenuItem();
         ctapagarMenuItem = new javax.swing.JMenuItem();
         relatorioMenu = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,18 +54,18 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
         jSplitPaneMdi.setPreferredSize(new java.awt.Dimension(107, 403));
         jSplitPaneMdi.setRightComponent(desktopPaneMdi);
 
-        javax.swing.GroupLayout financeiroMenuLayout = new javax.swing.GroupLayout(financeiroMenu);
-        financeiroMenu.setLayout(financeiroMenuLayout);
-        financeiroMenuLayout.setHorizontalGroup(
-            financeiroMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelInformacaoLayout = new javax.swing.GroupLayout(jPanelInformacao);
+        jPanelInformacao.setLayout(jPanelInformacaoLayout);
+        jPanelInformacaoLayout.setHorizontalGroup(
+            jPanelInformacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
-        financeiroMenuLayout.setVerticalGroup(
-            financeiroMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelInformacaoLayout.setVerticalGroup(
+            jPanelInformacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 401, Short.MAX_VALUE)
         );
 
-        jSplitPaneMdi.setLeftComponent(financeiroMenu);
+        jSplitPaneMdi.setLeftComponent(jPanelInformacao);
 
         agendaMenu.setMnemonic('f');
         agendaMenu.setText("Agenda");
@@ -97,68 +92,49 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
         CadastroMenu.setMnemonic('e');
         CadastroMenu.setText("Cadastro");
 
-        pacienteMenuItem.setMnemonic('t');
-        pacienteMenuItem.setText("Paciente");
-        pacienteMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        cadpacienteMenuItem.setMnemonic('t');
+        cadpacienteMenuItem.setText("Paciente");
+        cadpacienteMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pacienteMenuItemActionPerformed(evt);
+                cadpacienteMenuItemActionPerformed(evt);
             }
         });
-        CadastroMenu.add(pacienteMenuItem);
+        CadastroMenu.add(cadpacienteMenuItem);
 
-        medicoMenuItem.setMnemonic('y');
-        medicoMenuItem.setText("Médico");
-        CadastroMenu.add(medicoMenuItem);
+        cadmedicoMenuItem.setMnemonic('y');
+        cadmedicoMenuItem.setText("Médico");
+        CadastroMenu.add(cadmedicoMenuItem);
 
-        convenioMenuItem.setMnemonic('p');
-        convenioMenuItem.setText("Convênio");
-        CadastroMenu.add(convenioMenuItem);
+        cadconvenioMenuItem.setMnemonic('p');
+        cadconvenioMenuItem.setText("Convênio");
+        CadastroMenu.add(cadconvenioMenuItem);
 
-        especialidadeMenuItem.setMnemonic('d');
-        especialidadeMenuItem.setText("Especialidade");
-        CadastroMenu.add(especialidadeMenuItem);
-
-        estoqueMenuItem.setText("Estoque");
-        CadastroMenu.add(estoqueMenuItem);
-        CadastroMenu.add(cadastroSeparator);
-
-        calendarioMenuItem.setText("Calendário");
-        calendarioMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                calendarioMenuItemActionPerformed(evt);
-            }
-        });
-        CadastroMenu.add(calendarioMenuItem);
-
-        consultaCidMenuItem.setText("Consulta CID");
-        CadastroMenu.add(consultaCidMenuItem);
+        cadespecialidadeMenuItem.setMnemonic('d');
+        cadespecialidadeMenuItem.setText("Especialidade");
+        CadastroMenu.add(cadespecialidadeMenuItem);
 
         menuBar.add(CadastroMenu);
 
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("Financeiro");
+        financeiroMenu.setMnemonic('h');
+        financeiroMenu.setText("Financeiro");
 
-        grpfinanceiraMenuItem.setMnemonic('c');
-        grpfinanceiraMenuItem.setText("Grupo de Despesa");
-        helpMenu.add(grpfinanceiraMenuItem);
+        grpdespesaMenuItem.setMnemonic('c');
+        grpdespesaMenuItem.setText("Grupo de Despesa");
+        financeiroMenu.add(grpdespesaMenuItem);
 
         despesaMenuItem.setMnemonic('a');
         despesaMenuItem.setText("Despesa");
-        helpMenu.add(despesaMenuItem);
+        financeiroMenu.add(despesaMenuItem);
 
-        grmdespesaMenuItem.setText("Gerenciamento de Despesa");
-        helpMenu.add(grmdespesaMenuItem);
+        grtdespesaMenuItem.setText("Gerenciamento de Despesa");
+        financeiroMenu.add(grtdespesaMenuItem);
 
         ctapagarMenuItem.setText("Contas a Pagar");
-        helpMenu.add(ctapagarMenuItem);
+        financeiroMenu.add(ctapagarMenuItem);
 
-        menuBar.add(helpMenu);
+        menuBar.add(financeiroMenu);
 
         relatorioMenu.setText("Relatório");
-
-        jMenuItem1.setText("Convênio");
-        relatorioMenu.add(jMenuItem1);
-
         menuBar.add(relatorioMenu);
 
         setJMenuBar(menuBar);
@@ -181,13 +157,9 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_sairMenuItemActionPerformed
 
-    private void pacienteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pacienteMenuItemActionPerformed
+    private void cadpacienteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadpacienteMenuItemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_pacienteMenuItemActionPerformed
-
-    private void calendarioMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calendarioMenuItemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_calendarioMenuItemActionPerformed
+    }//GEN-LAST:event_cadpacienteMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,25 +200,20 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
     private javax.swing.JMenu CadastroMenu;
     private javax.swing.JMenu agendaMenu;
     private javax.swing.JMenuItem agendamentoMenuItem;
-    private javax.swing.JPopupMenu.Separator cadastroSeparator;
-    private javax.swing.JMenuItem calendarioMenuItem;
-    private javax.swing.JMenuItem consultaCidMenuItem;
-    private javax.swing.JMenuItem convenioMenuItem;
+    private javax.swing.JMenuItem cadconvenioMenuItem;
+    private javax.swing.JMenuItem cadespecialidadeMenuItem;
+    private javax.swing.JMenuItem cadmedicoMenuItem;
+    private javax.swing.JMenuItem cadpacienteMenuItem;
     private javax.swing.JMenuItem ctapagarMenuItem;
     private javax.swing.JDesktopPane desktopPaneMdi;
     private javax.swing.JMenuItem despesaMenuItem;
-    private javax.swing.JMenuItem especialidadeMenuItem;
-    private javax.swing.JMenuItem estoqueMenuItem;
-    private javax.swing.JPanel financeiroMenu;
-    private javax.swing.JMenuItem grmdespesaMenuItem;
-    private javax.swing.JMenuItem grpfinanceiraMenuItem;
-    private javax.swing.JMenu helpMenu;
+    private javax.swing.JMenu financeiroMenu;
+    private javax.swing.JMenuItem grpdespesaMenuItem;
+    private javax.swing.JMenuItem grtdespesaMenuItem;
     private javax.swing.JMenuItem horarioMedicoMenuItem;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanelInformacao;
     private javax.swing.JSplitPane jSplitPaneMdi;
-    private javax.swing.JMenuItem medicoMenuItem;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem pacienteMenuItem;
     private javax.swing.JMenu relatorioMenu;
     private javax.swing.JMenuItem sairMenuItem;
     // End of variables declaration//GEN-END:variables
