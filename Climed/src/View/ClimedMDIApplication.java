@@ -35,11 +35,11 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
         agendamentoMenuItem = new javax.swing.JMenuItem();
         horarioMedicoMenuItem = new javax.swing.JMenuItem();
         sairMenuItem = new javax.swing.JMenuItem();
-        editMenu = new javax.swing.JMenu();
-        cutMenuItem = new javax.swing.JMenuItem();
-        copyMenuItem = new javax.swing.JMenuItem();
-        pasteMenuItem = new javax.swing.JMenuItem();
-        deleteMenuItem = new javax.swing.JMenuItem();
+        CadastroMenu = new javax.swing.JMenu();
+        pacienteMenuItem = new javax.swing.JMenuItem();
+        medicoMenuItem = new javax.swing.JMenuItem();
+        convenioMenuItem = new javax.swing.JMenuItem();
+        especialidadeMenuItem = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
@@ -86,26 +86,31 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
 
         menuBar.add(agendaMenu);
 
-        editMenu.setMnemonic('e');
-        editMenu.setText("Edit");
+        CadastroMenu.setMnemonic('e');
+        CadastroMenu.setText("Cadastro");
 
-        cutMenuItem.setMnemonic('t');
-        cutMenuItem.setText("Cut");
-        editMenu.add(cutMenuItem);
+        pacienteMenuItem.setMnemonic('t');
+        pacienteMenuItem.setText("Paciente");
+        pacienteMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pacienteMenuItemActionPerformed(evt);
+            }
+        });
+        CadastroMenu.add(pacienteMenuItem);
 
-        copyMenuItem.setMnemonic('y');
-        copyMenuItem.setText("Copy");
-        editMenu.add(copyMenuItem);
+        medicoMenuItem.setMnemonic('y');
+        medicoMenuItem.setText("Médico");
+        CadastroMenu.add(medicoMenuItem);
 
-        pasteMenuItem.setMnemonic('p');
-        pasteMenuItem.setText("Paste");
-        editMenu.add(pasteMenuItem);
+        convenioMenuItem.setMnemonic('p');
+        convenioMenuItem.setText("Convênio");
+        CadastroMenu.add(convenioMenuItem);
 
-        deleteMenuItem.setMnemonic('d');
-        deleteMenuItem.setText("Delete");
-        editMenu.add(deleteMenuItem);
+        especialidadeMenuItem.setMnemonic('d');
+        especialidadeMenuItem.setText("Especialidade");
+        CadastroMenu.add(especialidadeMenuItem);
 
-        menuBar.add(editMenu);
+        menuBar.add(CadastroMenu);
 
         helpMenu.setMnemonic('h');
         helpMenu.setText("Help");
@@ -139,6 +144,10 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
     private void sairMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairMenuItemActionPerformed
         System.exit(0);
     }//GEN-LAST:event_sairMenuItemActionPerformed
+
+    private void pacienteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pacienteMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pacienteMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,21 +185,21 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu CadastroMenu;
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenu agendaMenu;
     private javax.swing.JMenuItem agendamentoMenuItem;
     private javax.swing.JMenuItem contentMenuItem;
-    private javax.swing.JMenuItem copyMenuItem;
-    private javax.swing.JMenuItem cutMenuItem;
-    private javax.swing.JMenuItem deleteMenuItem;
+    private javax.swing.JMenuItem convenioMenuItem;
     private javax.swing.JDesktopPane desktopPaneMdi;
-    private javax.swing.JMenu editMenu;
+    private javax.swing.JMenuItem especialidadeMenuItem;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuItem horarioMedicoMenuItem;
     private javax.swing.JPanel jPanelInformacao;
     private javax.swing.JSplitPane jSplitPaneMdi;
+    private javax.swing.JMenuItem medicoMenuItem;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem pasteMenuItem;
+    private javax.swing.JMenuItem pacienteMenuItem;
     private javax.swing.JMenuItem sairMenuItem;
     // End of variables declaration//GEN-END:variables
 
