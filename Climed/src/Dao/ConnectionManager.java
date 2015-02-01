@@ -46,6 +46,40 @@ public class ConnectionManager {
         }
     }
     
+    public static void closeAll(Connection conn) {
+        try {
+            if (conn != null) {
+                conn.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     
+    public static void closeAll(Connection conn, Statement stmt, ResultSet rs) {
+        try {
+            if (conn != null || stmt != null) {
+                closeAll(conn);
+            }
+            if (rs != null) {
+                rs.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public static void closeAll(Connection conn, Statement stmt) {
+        try {
+            if (conn != null) {
+                closeAll(conn);
+            }
+            if (stmt != null) {
+                stmt.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     
 }
