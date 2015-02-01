@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import Util.ClimedException;
 
 
 /**
@@ -28,5 +29,23 @@ public class ConnectionManager {
     private static final String STR_CON = "jdbc:mysql://" + IP + ":3306/" + DATABASE;
     private static final String USER = "usuario banco";
     private static final String PASSWORD = "senha de acesso";
+    
+    public static Connection getConexao() throws ClimedException {
+        Connection conn = null;
+        try {
+            Class.forName(STR_DRIVER);
+            conn = DriverManager.getConnection(STR_CON, USER, PASSWORD);
+            System.out.println("[ConnectionManager]: Obtendo conexao");
+            return conn;
+        } catch (ClassNotFoundException e) {
+            String errorMsg = "Driver nao encontrado";
+            throw new ClimedException(errorMsg, e);
+        } catch (SQLException e) {
+            String errorMsg = "Erro ao obter a conexao";
+            throw new ClimedException(errorMsg, e);
+        }
+    }
+    
+    
     
 }
