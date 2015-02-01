@@ -102,6 +102,43 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Relat&#xf3;rio"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="relconvenioMenuItem">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Conv&#xea;nio"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="relatendimentomedMenuItem">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Atendimento p/ M&#xe9;dico"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="relatendimentoconvpacmedicMenuItem">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Atendimento Conve x Paciente x  M&#xe9;dico"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="relacompanhamentoMenuItem">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Acompanhamento"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="relaniverMenuItem">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Aniversariante"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="ManutencaoMenu">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Manuten&#xe7;&#xe3;o"/>
+          </Properties>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="sairMenu">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Sair"/>
+          </Properties>
         </Menu>
       </SubComponents>
     </Menu>

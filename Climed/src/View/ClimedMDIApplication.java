@@ -46,6 +46,13 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
         grtdespesaMenuItem = new javax.swing.JMenuItem();
         ctapagarMenuItem = new javax.swing.JMenuItem();
         relatorioMenu = new javax.swing.JMenu();
+        relconvenioMenuItem = new javax.swing.JMenuItem();
+        relatendimentomedMenuItem = new javax.swing.JMenuItem();
+        relatendimentoconvpacmedicMenuItem = new javax.swing.JMenuItem();
+        relacompanhamentoMenuItem = new javax.swing.JMenuItem();
+        relaniverMenuItem = new javax.swing.JMenuItem();
+        ManutencaoMenu = new javax.swing.JMenu();
+        sairMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -135,7 +142,29 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
         menuBar.add(financeiroMenu);
 
         relatorioMenu.setText("Relatório");
+
+        relconvenioMenuItem.setText("Convênio");
+        relatorioMenu.add(relconvenioMenuItem);
+
+        relatendimentomedMenuItem.setText("Atendimento p/ Médico");
+        relatorioMenu.add(relatendimentomedMenuItem);
+
+        relatendimentoconvpacmedicMenuItem.setText("Atendimento Conve x Paciente x  Médico");
+        relatorioMenu.add(relatendimentoconvpacmedicMenuItem);
+
+        relacompanhamentoMenuItem.setText("Acompanhamento");
+        relatorioMenu.add(relacompanhamentoMenuItem);
+
+        relaniverMenuItem.setText("Aniversariante");
+        relatorioMenu.add(relaniverMenuItem);
+
         menuBar.add(relatorioMenu);
+
+        ManutencaoMenu.setText("Manutenção");
+        menuBar.add(ManutencaoMenu);
+
+        sairMenu.setText("Sair");
+        menuBar.add(sairMenu);
 
         setJMenuBar(menuBar);
 
@@ -198,6 +227,7 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu CadastroMenu;
+    private javax.swing.JMenu ManutencaoMenu;
     private javax.swing.JMenu agendaMenu;
     private javax.swing.JMenuItem agendamentoMenuItem;
     private javax.swing.JMenuItem cadconvenioMenuItem;
@@ -214,7 +244,13 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelInformacao;
     private javax.swing.JSplitPane jSplitPaneMdi;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenuItem relacompanhamentoMenuItem;
+    private javax.swing.JMenuItem relaniverMenuItem;
+    private javax.swing.JMenuItem relatendimentoconvpacmedicMenuItem;
+    private javax.swing.JMenuItem relatendimentomedMenuItem;
     private javax.swing.JMenu relatorioMenu;
+    private javax.swing.JMenuItem relconvenioMenuItem;
+    private javax.swing.JMenu sairMenu;
     private javax.swing.JMenuItem sairMenuItem;
     // End of variables declaration//GEN-END:variables
 
