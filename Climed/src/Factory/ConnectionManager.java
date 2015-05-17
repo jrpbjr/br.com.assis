@@ -52,10 +52,10 @@ public class ConnectionManager {
                 conn.close();
             }
         } catch (Exception e) {
-            e.printStackTrace();
+          //  e.printStackTrace();
         }
     }
-    
+  
     public static void closeAll(Connection conn, Statement stmt, ResultSet rs) {
         try {
             if (conn != null || stmt != null) {
@@ -65,7 +65,7 @@ public class ConnectionManager {
                 rs.close();
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
     }
     
@@ -78,7 +78,7 @@ public class ConnectionManager {
                 stmt.close();
             }
         } catch (Exception e) {
-            e.printStackTrace();
+          //  e.printStackTrace();
         }
     }
     
