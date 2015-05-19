@@ -40,7 +40,6 @@ public class PacienteInternalFrame extends javax.swing.JInternalFrame {
         jTable1 = new javax.swing.JTable();
 
         setClosable(true);
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMaximizable(true);
         setTitle("Gerenciamento de Paciente");
 
