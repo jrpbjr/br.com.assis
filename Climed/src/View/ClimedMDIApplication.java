@@ -5,6 +5,8 @@
  */
 package View;
 
+import java.awt.Component;
+
 /**
  *
  * @author Jose
@@ -98,6 +100,11 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
 
         CadastroMenu.setMnemonic('e');
         CadastroMenu.setText("Cadastro");
+        CadastroMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CadastroMenuActionPerformed(evt);
+            }
+        });
 
         cadpacienteMenuItem.setMnemonic('t');
         cadpacienteMenuItem.setText("Paciente");
@@ -188,7 +195,16 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
 
     private void cadpacienteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadpacienteMenuItemActionPerformed
         // TODO add your handling code here:
+        PacienteInternalFrame obj = new PacienteInternalFrame();
+        desktopPaneMdi.add(obj);
+        obj.setVisible(true);
+        
     }//GEN-LAST:event_cadpacienteMenuItemActionPerformed
+
+    private void CadastroMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroMenuActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_CadastroMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,10 +234,8 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ClimedMDIApplication().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new ClimedMDIApplication().setVisible(true);
         });
     }
 
