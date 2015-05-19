@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package climed;
+import View.ClimedMDIApplication;
+import javax.swing.JFrame;
+
 
 /**
  *
@@ -16,6 +19,10 @@ public class Climed {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        ClimedMDIApplication frm=new ClimedMDIApplication();
+        frm.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frm.setVisible(true);
+        
     }
     
 }
