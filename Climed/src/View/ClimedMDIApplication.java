@@ -5,8 +5,6 @@
  */
 package View;
 
-import java.awt.Component;
-
 /**
  *
  * @author Jose
