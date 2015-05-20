@@ -55,8 +55,8 @@
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jButton5" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="103" max="32767" attributes="0"/>
-                  <Component id="sairButton" min="-2" pref="67" max="-2" attributes="0"/>
+                  <EmptySpace pref="92" max="32767" attributes="0"/>
+                  <Component id="sairButton" min="-2" pref="78" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -96,6 +96,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Sair"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sairButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton5">
           <Properties>
