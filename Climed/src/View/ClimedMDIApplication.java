@@ -237,7 +237,7 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
     private javax.swing.JMenuItem cadmedicoMenuItem;
     private javax.swing.JMenuItem cadpacienteMenuItem;
     private javax.swing.JMenuItem ctapagarMenuItem;
-    private javax.swing.JDesktopPane desktopPaneMdi;
+    public static javax.swing.JDesktopPane desktopPaneMdi;
     private javax.swing.JMenuItem despesaMenuItem;
     private javax.swing.JMenu financeiroMenu;
     private javax.swing.JMenuItem grpdespesaMenuItem;

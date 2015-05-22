@@ -5,7 +5,7 @@
  */
 package View;
 
-import javax.swing.WindowConstants;
+import static View.ClimedMDIApplication.desktopPaneMdi;
 
 /**
  *
@@ -16,6 +16,8 @@ public class PacienteInternalFrame extends javax.swing.JInternalFrame {
     /**
      * Creates new form PacienteFrame
      */
+    CadastroPacienteJInternalFrame CadastroPaciente = null;
+    
     public PacienteInternalFrame() {
         initComponents();
     }
@@ -46,6 +48,11 @@ public class PacienteInternalFrame extends javax.swing.JInternalFrame {
         setTitle("Gerenciamento de Paciente");
 
         jButton1.setText("Incluir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Excluir");
 
@@ -197,6 +204,38 @@ public class PacienteInternalFrame extends javax.swing.JInternalFrame {
         //this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_sairButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+       //PacienteInternalFrame obj = new PacienteInternalFrame();
+        //desktopPaneMdi.add(obj);
+        //obj.setVisible(true);
+        
+        
+        if (evt.getSource() == jButton1) {
+            
+            if (CadastroPaciente == null){
+            CadastroPaciente = new CadastroPacienteJInternalFrame();
+            desktopPaneMdi.add(CadastroPaciente);
+            CadastroPaciente.setVisible(true);
+            }
+            
+            desktopPaneMdi.moveToFront(CadastroPaciente);
+            
+            if(CadastroPaciente.isClosed()){
+            CadastroPaciente = new CadastroPacienteJInternalFrame();
+            desktopPaneMdi.add(CadastroPaciente);
+            CadastroPaciente.setVisible(true);
+            desktopPaneMdi.moveToFront(CadastroPaciente);
+            }
+            
+        }
+        
+       //CadastroPacienteJInternalFrame obj = new CadastroPacienteJInternalFrame();
+       //desktopPaneMdi.add(obj);
+       //obj.setVisible(true);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
