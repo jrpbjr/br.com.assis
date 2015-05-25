@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package climed;
-import View.ClimedMDIApplication;
+import br.com.assis.view.ClimedMDIApplication;
 import javax.swing.JFrame;
 
 

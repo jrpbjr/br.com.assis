@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Factory;
+package br.com.assis.factory;
 
 /**
  *
@@ -12,6 +12,8 @@ package Factory;
 import java.sql.Connection; // conexão SQL para Java
 import java.sql.DriverManager; // driver de conexão SQL para Java
 import java.sql.SQLException; // classe para tratamento de exceções
+
+
 
 public class ConnectionFactory {
      public Connection getConnection() {

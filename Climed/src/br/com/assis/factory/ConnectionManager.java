@@ -3,16 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Factory;
+package br.com.assis.factory;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import Util.ClimedException;
-
-
+import br.com.assis.util.ClimedException;
 /**
  *
  * @author Jose
@@ -24,8 +22,8 @@ public class ConnectionManager {
      * 2) Teste esta classe para garantir que esteja funcionando
      */
     private static final String STR_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String DATABASE = "projetojava";
-    private static final String IP = "192.168.1.112"; //"192.168.0.1" ;
+    private static final String DATABASE = "climeddev";
+    private static final String IP = "localhost"; //"192.168.0.1" ;
     private static final String STR_CON = "jdbc:mysql://" + IP + ":3306/" + DATABASE;
     private static final String USER = "root";
     private static final String PASSWORD = "zeent5775";
@@ -52,7 +50,7 @@ public class ConnectionManager {
                 conn.close();
             }
         } catch (Exception e) {
-          //  e.printStackTrace();
+            e.printStackTrace();
         }
     }
   
@@ -65,7 +63,7 @@ public class ConnectionManager {
                 rs.close();
             }
         } catch (Exception e) {
-            //e.printStackTrace();
+            e.printStackTrace();
         }
     }
     
@@ -78,7 +76,7 @@ public class ConnectionManager {
                 stmt.close();
             }
         } catch (Exception e) {
-          //  e.printStackTrace();
+            e.printStackTrace();
         }
     }
     

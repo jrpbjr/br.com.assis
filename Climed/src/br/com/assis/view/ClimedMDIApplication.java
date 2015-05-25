@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package br.com.assis.view;
 
 /**
  *
@@ -14,7 +14,7 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
     /**
      * Creates new form ClimedMDIApplication
      */
-    PacienteInternalFrame Paciente = null;
+    GereciamentoPacienteInternalFrame Paciente = null;
     
     public ClimedMDIApplication() {
         initComponents();
@@ -203,7 +203,7 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
        if (evt.getSource() == cadpacienteMenuItem) {
             
                 if (Paciente == null) {
-                Paciente = new PacienteInternalFrame();
+                Paciente = new GereciamentoPacienteInternalFrame();
                 desktopPaneMdi.add(Paciente);
                 Paciente.setVisible(true);
                 }
@@ -211,7 +211,7 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
                 desktopPaneMdi.moveToFront(Paciente);
                 
                if (Paciente.isClosed()) {
-                    Paciente = new PacienteInternalFrame();
+                    Paciente = new GereciamentoPacienteInternalFrame();
                     desktopPaneMdi.add(Paciente);
                     Paciente.setVisible(true);
                     desktopPaneMdi.moveToFront(Paciente);

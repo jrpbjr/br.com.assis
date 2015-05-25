@@ -3,22 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package br.com.assis.view;
 
-import static View.ClimedMDIApplication.desktopPaneMdi;
+import static br.com.assis.view.ClimedMDIApplication.desktopPaneMdi;
 
 /**
  *
  * @author Jose
  */
-public class PacienteInternalFrame extends javax.swing.JInternalFrame {
+public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form PacienteFrame
      */
     CadastroPacienteJInternalFrame CadastroPaciente = null;
     
-    public PacienteInternalFrame() {
+    CadastroUsuarioJInternalFrame CadastroUsuario = null;
+    
+    public GereciamentoPacienteInternalFrame() {
         initComponents();
     }
 
@@ -211,7 +213,28 @@ public class PacienteInternalFrame extends javax.swing.JInternalFrame {
         //desktopPaneMdi.add(obj);
         //obj.setVisible(true);
         
+      
+        if (evt.getSource() == jButton1) {
+            
+            if (CadastroUsuario == null){
+            CadastroUsuario = new CadastroUsuarioJInternalFrame();
+            desktopPaneMdi.add(CadastroUsuario);
+            CadastroUsuario.setVisible(true);
+            }
+            
+            desktopPaneMdi.moveToFront(CadastroUsuario);
+            
+            if(CadastroUsuario.isClosed()){
+            CadastroUsuario = new CadastroUsuarioJInternalFrame();
+            desktopPaneMdi.add(CadastroPaciente);
+            CadastroUsuario.setVisible(true);
+            desktopPaneMdi.moveToFront(CadastroUsuario);
+            }
+            
+        }
+       
         
+        /*
         if (evt.getSource() == jButton1) {
             
             if (CadastroPaciente == null){
@@ -230,6 +253,8 @@ public class PacienteInternalFrame extends javax.swing.JInternalFrame {
             }
             
         }
+        
+        */
         
        //CadastroPacienteJInternalFrame obj = new CadastroPacienteJInternalFrame();
        //desktopPaneMdi.add(obj);
