@@ -22,6 +22,14 @@ public interface IPacienteDao {
     
     /**
      *
+     * @param pac_id
+     * @param paciente
+     * @throws ClimedException
+     */
+    public abstract void atualizar_id(int pac_id,Paciente paciente) throws ClimedException;
+    
+    /**
+     *
      * @param pac_telcel
      * @throws ClimedException
      */

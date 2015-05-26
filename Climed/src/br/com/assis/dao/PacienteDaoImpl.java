@@ -57,7 +57,7 @@ public class PacienteDaoImpl implements IPacienteDao {
                                                 "  PRIMARY KEY (pac_id)\n" +
                                                 ")";
     private final static String SALVAR_PACIENTE      = "INSERT INTO tblpaciente (pac_nome, pac_telcel, pac_end) VALUES (?,?,?);";
-    private final static String UPDATE_PACIENTE      = "UPDATE tblpaciente SET pac_nome = ? WHERE pac_id =?;";
+    private final static String UPDATE_PACIENTE      = "UPDATE tblpaciente SET pac_nome = ? WHERE pac_id = '";
     private final static String DELETE_PACIENTE      = "DELETE FROM tblpaciente WHERE pac_telcel = '";
     private final static String GET_ALL_PACIENTES    = "SELECT pac_id, pac_nome, pac_telcel, pac_end FROM tblpaciente limit 25;";
     private final static String GET_PACIENTE_BY_CEL  = "SELECT pac_id, pac_nome, pac_telcel, pac_end FROM tblpaciente WHERE pac_telcel = ?";
@@ -74,7 +74,7 @@ public class PacienteDaoImpl implements IPacienteDao {
 			stmt.executeUpdate(CREATE_TABLE);
 		} catch (SQLException e) {
 			throw new ClimedException(
-					"Erro ao criar a tabela de clientes : " + CREATE_TABLE, e);
+					"Erro ao criar a tabela de paciente : " + CREATE_TABLE, e);
 		} finally {
 			ConnectionManager.closeAll(conn, stmt);
 		}
@@ -122,6 +122,31 @@ public class PacienteDaoImpl implements IPacienteDao {
 		}
 	}
 
+     @Override
+    public void atualizar_id(int pac_id,Paciente paciente) throws ClimedException {
+                Connection conn = null;
+		PreparedStatement stmt = null;
+		try {
+			// Abertura da conexao
+			conn = ConnectionManager.getConexao();
+			// Criacao da PreparedStatement
+			stmt = conn.prepareStatement(UPDATE_PACIENTE + pac_id + "'");
+			// Atribuicao de uma String para a 1a. interrogacao (nome)
+			stmt.setString(1, paciente.getPac_nome());
+			// Atribuicao de uma String para a 3a. interrogacao ()
+			//stmt.setString(2, paciente.getPac_telcel());
+			// Atribuicao de uma String para a 2a. interrogacao ()
+			//stmt.setString(3, paciente.getPac_end());
+			// Executar a operacao de gravar os dados na base
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			throw new ClimedException(
+					"Nao foi possivel salvar o paciente na base de dados.", e);
+		} finally {
+			// Fechamento da Connection e Statement
+			ConnectionManager.closeAll(conn, stmt);
+		}
+       }
     
     @Override
     public void salvar(Paciente paciente) throws ClimedException {
@@ -142,7 +167,7 @@ public class PacienteDaoImpl implements IPacienteDao {
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			throw new ClimedException(
-					"Nao foi possivel salvar o cliente na base de dados.", e);
+					"Nao foi possivel salvar o paciente na base de dados.", e);
 		} finally {
 			// Fechamento da Connection e Statement
 			ConnectionManager.closeAll(conn, stmt);

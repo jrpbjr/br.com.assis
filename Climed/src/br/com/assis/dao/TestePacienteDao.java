@@ -31,8 +31,9 @@ public class TestePacienteDao {
         System.out.println("REMOVER PACIENTE  PAC_TELCEL : 2");
         System.out.println("LISTAR PACIENTE              : 3");
         System.out.println("BUSCAR PACIENTE   PAC_TELCEL : 4");
-        System.out.println("BUSCAR PACIENTE   PAC_ID     : 5");
-        System.out.println("REMOVER PACIENTE  PAC_ID     : 6");
+        System.out.println("BUSCAR PACIENTE     PAC_ID   : 5");
+        System.out.println("REMOVER PACIENTE    PAC_ID   : 6");
+        System.out.println("ATUALIZAR PACIENTE  PAC_ID   : 7");
         System.out.println("FINALIZAR                    : 0");
         System.out.println("-------------------------");
         System.out.print("ESCOLHA A OPERACAO: ");
@@ -188,7 +189,11 @@ public class TestePacienteDao {
                pacid = lePacIdPaciente();
                dao.excluir_paciente_id(Integer.parseInt(pacid));
                break;
-                   
+        case 7:    
+            pacid = lePacIdPaciente();
+            paciente = lePaciente();
+            dao.atualizar_id(Integer.parseInt(pacid), paciente);
+            break;       
         }
     }
     
