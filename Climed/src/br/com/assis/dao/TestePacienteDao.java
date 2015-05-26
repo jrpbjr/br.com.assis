@@ -32,6 +32,7 @@ public class TestePacienteDao {
         System.out.println("LISTAR PACIENTE              : 3");
         System.out.println("BUSCAR PACIENTE   PAC_TELCEL : 4");
         System.out.println("BUSCAR PACIENTE   PAC_ID     : 5");
+        System.out.println("REMOVER PACIENTE  PAC_ID     : 6");
         System.out.println("FINALIZAR                    : 0");
         System.out.println("-------------------------");
         System.out.print("ESCOLHA A OPERACAO: ");
@@ -79,31 +80,59 @@ public class TestePacienteDao {
     }
     
     /**
-     * Este metodo e reponsavel por ler o ID de um cliente digitado pelo usuario, fazendo todas as "perguntas /
+     * Este metodo e reponsavel por ler o pac_telcel de um paciente digitado pelo usuario, fazendo todas as "perguntas /
      * interaçoes" necessarias para obtençao dos dados
      * @return 
      */
     public static String lePacTelCelPaciente() {
         // Leitura do pac_telcel do Paciente a ser removido
-        String pac_telcel = "";        
+        String pactelcel = "";        
         try {
             // O pac_telcel deve obrigatoriamente ser uma String, por isto criamos um
             // while
             // enquanto o usuario nao digitar um inteiro
-            while (pac_telcel.equals("")) {
+            while (pactelcel.equals("")) {
                 System.out.print("pac_telcel do Paciente : ");
                 String strPacTelCel = Teclado.le();
                 // Se o strPacTelCel e valido, interrompemos o while
                 if (strPacTelCel != null && strPacTelCel.length() > 0) {
-                    pac_telcel = strPacTelCel;
+                    pactelcel = strPacTelCel;
                 } // end if
             } // end while
         } catch (Exception e) {
             e.printStackTrace();
         }
         // retorna o Paciente lido
-        return pac_telcel;
+        return pactelcel;
     }
+    
+     /**
+     * Este metodo e reponsavel por ler o pac_telcel de um paciente digitado pelo usuario, fazendo todas as "perguntas /
+     * interaçoes" necessarias para obtençao dos dados
+     * @return 
+     */
+    public static String lePacIdPaciente() {
+        // Leitura do pac_telcel do Paciente a ser removido
+        String pacid = "";        
+        try {
+            // O pac_telcel deve obrigatoriamente ser uma String, por isto criamos um
+            // while
+            // enquanto o usuario nao digitar um inteiro
+            while (pacid.equals("")) {
+                System.out.print("pac_id do Paciente : ");
+                String strPacId = Teclado.le();
+                // Se o strPacId e valido, interrompemos o while
+                if (strPacId != null && strPacId.length() > 0) {
+                    pacid = strPacId;
+                } // end if
+            } // end while
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // retorna o Paciente lido
+        return pacid;
+    }
+    
     
 
      public static void listarPaciente(List paciente) {
@@ -121,6 +150,7 @@ public class TestePacienteDao {
      */
     public static void executarTarefa(int operacao) throws ClimedException {
     	String pactelcel = null;
+        String pacid = null;
     	Paciente paciente = null;
     	
         switch (operacao) {
@@ -146,6 +176,19 @@ public class TestePacienteDao {
         		System.out.println(paciente);
         	else
         		System.out.println("pac_telcel nao encontrado!");
+        case 5:
+               System.out.println("Buscando paciente por pac_id");
+               pacid = lePacIdPaciente();
+               paciente = dao.getPacienteById(Integer.parseInt(pacid));
+               if (paciente != null)
+                   System.out.println(paciente);
+               else
+        	   System.out.println("pac_id nao encontrado!");
+        case 6:
+               pacid = lePacIdPaciente();
+               dao.excluir_paciente_id(Integer.parseInt(pacid));
+               break;
+                   
         }
     }
     

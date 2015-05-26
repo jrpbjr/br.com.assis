@@ -29,6 +29,13 @@ public interface IPacienteDao {
     
     /**
      *
+     * @param pac_id
+     * @throws ClimedException
+     */
+    public abstract void excluir_paciente_id(int pac_id) throws ClimedException;
+    
+    /**
+     *
      * @return
      * @throws ClimedException
      */

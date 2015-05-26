@@ -63,7 +63,8 @@ public class PacienteDaoImpl implements IPacienteDao {
     private final static String GET_PACIENTE_BY_CEL  = "SELECT pac_id, pac_nome, pac_telcel, pac_end FROM tblpaciente WHERE pac_telcel = ?";
     
     private final static String GET_PACIENTE_BY_ID  = "SELECT pac_id, pac_nome, pac_telcel, pac_end FROM tblpaciente WHERE pac_id = ?";
-
+    private final static String DELETE_PACIENTE_ID  = "DELETE FROM tblpaciente WHERE pac_id = '";
+    
     public void createTable() throws ClimedException {
 		Connection conn = null;
 		Statement stmt = null;
@@ -94,6 +95,27 @@ public class PacienteDaoImpl implements IPacienteDao {
 		} catch (SQLException e) {
 			throw new ClimedException("Erro ao excluir paciente: "
 					+ DELETE_PACIENTE, e);
+		} finally {
+			// Fechamento da Connection e Statement
+			ConnectionManager.closeAll(conn, stmt);
+		}
+	}
+    
+    public void excluir_paciente_id(int pac_id) throws ClimedException {
+		Connection conn = null;
+		Statement stmt = null;
+		try {
+			// Abertura da conexao
+			conn = ConnectionManager.getConexao();
+			// Criacao do Statement
+			stmt = conn.createStatement();
+			// Execucao da query
+			int numeroLinhas = stmt.executeUpdate(DELETE_PACIENTE_ID + pac_id + "'");
+			// Impressao do numero de linhas alteradas
+			System.out.println("Numero de pacientes excluidos: " + numeroLinhas);
+		} catch (SQLException e) {
+			throw new ClimedException("Erro ao excluir paciente: "
+					+ DELETE_PACIENTE_ID, e);
 		} finally {
 			// Fechamento da Connection e Statement
 			ConnectionManager.closeAll(conn, stmt);
