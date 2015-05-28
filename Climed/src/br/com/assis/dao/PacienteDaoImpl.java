@@ -56,7 +56,7 @@ public class PacienteDaoImpl implements IPacienteDao {
                                                 "  pac_QD varchar(200) DEFAULT NULL,\n" +
                                                 "  PRIMARY KEY (pac_id)\n" +
                                                 ")";
-    private final static String SALVAR_PACIENTE      = "INSERT INTO tblpaciente (pac_nome, pac_telcel, pac_end) VALUES (?,?,?);";
+    private final static String SALVAR_PACIENTE      = "INSERT INTO tblpaciente (pac_nome, pac_telcel, pac_telres, pac_telcom, pac_telrec, pac_end) VALUES (?,?,?,?,?,?)";
     private final static String UPDATE_PACIENTE      = "UPDATE tblpaciente SET pac_nome = ? WHERE pac_id = '";
     private final static String DELETE_PACIENTE      = "DELETE FROM tblpaciente WHERE pac_telcel = '";
     private final static String GET_ALL_PACIENTES    = "SELECT pac_id, pac_nome, pac_telcel, pac_end FROM tblpaciente limit 25;";
@@ -134,9 +134,9 @@ public class PacienteDaoImpl implements IPacienteDao {
 			// Atribuicao de uma String para a 1a. interrogacao (nome)
 			stmt.setString(1, paciente.getPac_nome());
 			// Atribuicao de uma String para a 3a. interrogacao ()
-			//stmt.setString(2, paciente.getPac_telcel());
+			stmt.setString(2, paciente.getPac_telcel());
 			// Atribuicao de uma String para a 2a. interrogacao ()
-			//stmt.setString(3, paciente.getPac_end());
+			stmt.setString(3, paciente.getPac_end());
 			// Executar a operacao de gravar os dados na base
 			stmt.executeUpdate();
 		} catch (SQLException e) {
@@ -149,20 +149,28 @@ public class PacienteDaoImpl implements IPacienteDao {
        }
     
     @Override
-    public void salvar(Paciente paciente) throws ClimedException {
+    public void salvar_paciente(Paciente paciente) throws ClimedException {
         Connection conn = null;
 		PreparedStatement stmt = null;
 		try {
 			// Abertura da conexao
+                        //(primeiro) label pac_nome, pac_telcel, pactelres, pac_telcom, pac_telrec, pac_end
 			conn = ConnectionManager.getConexao();
 			// Criacao da PreparedStatement
 			stmt = conn.prepareStatement(SALVAR_PACIENTE);
-			// Atribuicao de uma String para a 1a. interrogacao (nome)
+			// Atribuicao de uma String para a 1a. interrogacao (pac_nome)
 			stmt.setString(1, paciente.getPac_nome());
-			// Atribuicao de uma String para a 3a. interrogacao ()
+			// Atribuicao de uma String para a 2a. interrogacao (getPac_telcel)
 			stmt.setString(2, paciente.getPac_telcel());
-			// Atribuicao de uma String para a 2a. interrogacao ()
-			stmt.setString(3, paciente.getPac_end());
+			// Atribuicao de uma String para a 3a. interrogacao (pactelres)
+                        stmt.setString(3, paciente.getPac_telres());
+                        // Atribuicao de uma String para a 4a. interrogacao (pac_telcom)
+                        stmt.setString(4, paciente.getPac_telcom());
+                        // Atribuição de uma String para a 5a. interrogação (pac_telrec)
+                        stmt.setString(5, paciente.getPac_telrec());
+                        // Atribuicao de uma String para a 6a. interrogacao (Pac_end)
+			stmt.setString(6, paciente.getPac_end());
+                        
 			// Executar a operacao de gravar os dados na base
 			stmt.executeUpdate();
 		} catch (SQLException e) {
@@ -194,12 +202,15 @@ public class PacienteDaoImpl implements IPacienteDao {
 			// Leitura do ResultSet
 			while (rs.next()) {
 				// leitura dos dados retornados
-				int pac_id = rs.getInt("pac_id");
-				String pac_nome = rs.getString("pac_nome");
+				int pac_id        = rs.getInt("pac_id");
+				String pac_nome   = rs.getString("pac_nome");
 				String pac_telcel = rs.getString("pac_telcel");
-				String pac_end = rs.getString("pac_end");
+                                String pac_telres = rs.getString("pac_telres");
+                                String pac_telcom = rs.getString("pac_telcom");
+                                String pac_telrec = rs.getString("pac_telrec");
+				String pac_end    = rs.getString("pac_end");
 				// criacao do cliente
-				Paciente p = new Paciente(pac_id, pac_nome, pac_telcel, pac_end);
+				Paciente p = new Paciente(pac_id, pac_nome, pac_telcel,pac_telres, pac_telcom, pac_telrec, pac_end);
 				// adicao do cliente na lista
 				paciente.add(p);
 			}
@@ -232,9 +243,13 @@ public class PacienteDaoImpl implements IPacienteDao {
 			rs = stmt.executeQuery();
 			// Leitura do ResultSet com geracao de um objeto Cliente
 			while (rs.next()) {
+                            //pac_telres, pac_telcom, pac_telrec
 				paciente = new Paciente(rs.getInt("pac_id"),
                                                         rs.getString("pac_nome"),
                                                         rs.getString("pac_telcel"),
+                                                        rs.getString("pac_telres"),
+                                                        rs.getString("pac_telcom"),
+                                                        rs.getString("pac_telrec"),
                                                         rs.getString("pac_end"));
 			}
 		} catch (SQLException e) {
@@ -267,6 +282,9 @@ public class PacienteDaoImpl implements IPacienteDao {
 				paciente = new Paciente(rs.getInt("pac_id"),
                                                         rs.getString("pac_nome"),
                                                         rs.getString("pac_telcel"),
+                                                        rs.getString("pac_telres"),
+                                                        rs.getString("pac_telcom"),
+                                                        rs.getString("pac_telrec"),
                                                         rs.getString("pac_end"));
 			}
 		} catch (SQLException e) {

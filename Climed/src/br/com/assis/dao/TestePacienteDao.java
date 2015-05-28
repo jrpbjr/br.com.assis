@@ -65,14 +65,30 @@ public class TestePacienteDao {
             System.out.print("Nome do paciente: ");
             // Leitura do nome
             String pac_nome = Teclado.le();
-            System.out.print("end do paciente: ");
-            // Leitura do telefone
-            String pac_end = Teclado.le();
+            
             System.out.print("pac_telcel do paciente : ");
             // Leitura do pac_telcel
             String pac_telcel = Teclado.le();
+            
+            System.out.print("pac_telres do paciente : ");
+            // Leitura do pac_telres
+            String pac_telres = Teclado.le();
+            
+            System.out.print("pac_telcom do paciente : ");
+            // Leitura do pac_telcom
+            String pac_telcom = Teclado.le();
+            
+            System.out.print("pac_telrec do paciente : ");
+            // Leitura do pac_telrec
+            String pac_telrec = Teclado.le();
+            
+            System.out.print("pac_end do paciente: ");
+            // Leitura do pac_end
+            String pac_end = Teclado.le();            
+            
+            
             int pac_id = 0;
-            paciente = new Paciente(pac_id, pac_nome, pac_telcel, pac_end);
+            paciente = new Paciente(pac_id, pac_nome, pac_telcel,pac_telres, pac_telcom, pac_telrec, pac_end);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -158,7 +174,7 @@ public class TestePacienteDao {
         case 1:
             System.out.println("Inserindo paciente");
             paciente = lePaciente();
-            dao.salvar(paciente);
+            dao.salvar_paciente(paciente);
             break;
         case 2:
             pactelcel = lePacTelCelPaciente();

@@ -10,15 +10,13 @@ package br.com.assis.model;
  * @author jr
  */
 public class Paciente {
-   
+    //(primeiro) label pac_nome, pac_telcel, pac_telres, pac_telcom, pac_telrec, pac_end
   private  int     pac_id;
   private  String  pac_nome;
-  private  String  pac_telcel;
-  /*
+  private  String  pac_telcel;  
   private  String  pac_telres;
   private  String  pac_telcom;
-  private  String  pac_telrec;
-  */
+  private  String  pac_telrec;  
   private  String  pac_end;
   /*
   private  String  pac_bai;
@@ -50,6 +48,9 @@ public class Paciente {
    * @param pac_id
    * @param pac_nome
    * @param pac_telcel
+   * @param pac_telres
+   * @param pac_telcom
+   * @param pac_telrec
    * 
    * 
    * 
@@ -67,8 +68,8 @@ public class Paciente {
    * 
    * 
    */
-public Paciente(int pac_id,String  pac_nome, String  pac_telcel, String  pac_end){
-        this(pac_nome, pac_telcel, pac_end);
+public Paciente(int pac_id,String  pac_nome, String  pac_telcel,String  pac_telres, String  pac_telcom, String  pac_telrec, String  pac_end){
+        this(pac_nome, pac_telcel,pac_telres, pac_telcom, pac_telrec, pac_end);
         this.pac_id = pac_id;
 }
 
@@ -78,15 +79,45 @@ public Paciente(int pac_id,String  pac_nome, String  pac_telcel, String  pac_end
      * para salvar no banco de dados, onde o id e gerado automaticamente.
      * @param pac_nome
      * @param pac_telcel     
+     * @param pac_telres     
+     * @param pac_telcom     
+     * @param pac_telrec     
      * @param pac_end     
  
  */
-public Paciente(String  pac_nome, String  pac_telcel, String  pac_end)
+public Paciente(String  pac_nome, String  pac_telcel,String  pac_telres, String  pac_telcom, String  pac_telrec, String  pac_end)
     {        
         this.pac_nome       = pac_nome;
-        this.pac_telcel     = pac_telcel;        
+        this.pac_telcel     = pac_telcel;
+        this.pac_telres     = pac_telres;
+        this.pac_telcom     = pac_telcom;
+        this.pac_telrec     = pac_telrec;
         this.pac_end        = pac_end;       
 
+    }
+
+    public void setPac_telres(String pac_telres) {
+        this.pac_telres = pac_telres;
+    }
+
+    public void setPac_telrec(String pac_telrec) {
+        this.pac_telrec = pac_telrec;
+    }
+
+    public void setPac_telcom(String pac_telcom) {
+        this.pac_telcom = pac_telcom;
+    }
+
+    public String getPac_telres() {
+        return pac_telres;
+    }
+
+    public String getPac_telrec() {
+        return pac_telrec;
+    }
+
+    public String getPac_telcom() {
+        return pac_telcom;
     }
 
     public int getPac_id() {
