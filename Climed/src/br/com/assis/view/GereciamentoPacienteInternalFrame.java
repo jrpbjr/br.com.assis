@@ -16,8 +16,7 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
     /**
      * Creates new form PacienteFrame
      */
-    CadastroPacienteJInternalFrame CadastroPaciente = null;
-    
+    CadastroPacienteJInternalFrame CadastroPaciente = null;    
     CadastroUsuarioJInternalFrame CadastroUsuario = null;
     
     public GereciamentoPacienteInternalFrame() {
@@ -44,7 +43,7 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
         jButton3 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTablePaciente = new javax.swing.JTable();
 
         setClosable(true);
         setMaximizable(true);
@@ -128,7 +127,7 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Display"));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTablePaciente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -178,7 +177,7 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTablePaciente);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -212,7 +211,6 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
 
     private void sairButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairButtonActionPerformed
         // TODO add your handling code here:
-        //this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_sairButtonActionPerformed
 
@@ -282,7 +280,7 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTablePaciente;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton sairButton;
     // End of variables declaration//GEN-END:variables

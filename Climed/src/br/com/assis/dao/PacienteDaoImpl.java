@@ -59,8 +59,8 @@ public class PacienteDaoImpl implements IPacienteDao {
     private final static String SALVAR_PACIENTE      = "INSERT INTO tblpaciente (pac_nome, pac_telcel, pac_telres, pac_telcom, pac_telrec, pac_end) VALUES (?,?,?,?,?,?)";
     private final static String UPDATE_PACIENTE      = "UPDATE tblpaciente SET pac_nome = ? WHERE pac_id = '";
     private final static String DELETE_PACIENTE      = "DELETE FROM tblpaciente WHERE pac_telcel = '";
-    private final static String GET_ALL_PACIENTES    = "SELECT pac_id, pac_nome, pac_telcel, pac_end FROM tblpaciente limit 25;";
-    private final static String GET_PACIENTE_BY_CEL  = "SELECT pac_id, pac_nome, pac_telcel, pac_end FROM tblpaciente WHERE pac_telcel = ?";
+    private final static String GET_ALL_PACIENTES    = "SELECT pac_id, pac_nome, pac_telcel, pac_telres, pac_telcom, pac_telrec, pac_end FROM tblpaciente limit 25";
+    private final static String GET_PACIENTE_BY_CEL  = "SELECT pac_id, pac_nome, pac_telcel, pac_telres, pac_telcom, pac_telrec, pac_end FROM tblpaciente WHERE pac_telcel = ?";
     
     private final static String GET_PACIENTE_BY_ID  = "SELECT pac_id, pac_nome, pac_telcel, pac_end FROM tblpaciente WHERE pac_id = ?";
     private final static String DELETE_PACIENTE_ID  = "DELETE FROM tblpaciente WHERE pac_id = '";
