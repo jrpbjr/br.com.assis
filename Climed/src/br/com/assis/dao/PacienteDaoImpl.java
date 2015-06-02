@@ -62,7 +62,7 @@ public class PacienteDaoImpl implements IPacienteDao {
     private final static String GET_ALL_PACIENTES    = "SELECT pac_id, pac_nome, pac_telcel, pac_telres, pac_telcom, pac_telrec, pac_end FROM tblpaciente limit 25";
     private final static String GET_PACIENTE_BY_CEL  = "SELECT pac_id, pac_nome, pac_telcel, pac_telres, pac_telcom, pac_telrec, pac_end FROM tblpaciente WHERE pac_telcel = ?";
     
-    private final static String GET_PACIENTE_BY_ID  = "SELECT pac_id, pac_nome, pac_telcel, pac_end FROM tblpaciente WHERE pac_id = ?";
+    private final static String GET_PACIENTE_BY_ID  = "SELECT pac_id, pac_nome, pac_telcel, pac_telres, pac_telcom, pac_telrec, pac_end FROM tblpaciente WHERE pac_id = ?";
     private final static String DELETE_PACIENTE_ID  = "DELETE FROM tblpaciente WHERE pac_id = '";
     
     public void createTable() throws ClimedException {
@@ -101,6 +101,7 @@ public class PacienteDaoImpl implements IPacienteDao {
 		}
 	}
     
+     @Override
     public void excluir_paciente_id(int pac_id) throws ClimedException {
 		Connection conn = null;
 		Statement stmt = null;
@@ -263,6 +264,7 @@ public class PacienteDaoImpl implements IPacienteDao {
 		return paciente;
 	}
     
+     @Override
        public Paciente getPacienteById(int pac_id) throws ClimedException {
                 Connection conn = null;
 		PreparedStatement stmt = null;
@@ -279,7 +281,7 @@ public class PacienteDaoImpl implements IPacienteDao {
 			rs = stmt.executeQuery();
 			// Leitura do ResultSet com geracao de um objeto Cliente
 			while (rs.next()) {
-				paciente = new Paciente(rs.getInt("pac_id"),
+                                    paciente = new Paciente(rs.getInt("pac_id"),
                                                         rs.getString("pac_nome"),
                                                         rs.getString("pac_telcel"),
                                                         rs.getString("pac_telres"),
