@@ -62,6 +62,7 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jLabel12 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabelDataUltimoAtendimento = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -149,6 +150,8 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
 
         jButton2.setText("Histórico de Consulta");
 
+        jLabelDataUltimoAtendimento.setText("jLabel26");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -175,7 +178,10 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel4)
                                 .addGap(43, 43, 43)
                                 .addComponent(jButtonInsere))
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabelDataUltimoAtendimento))))
                     .addComponent(jTextFieldNome)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,7 +235,8 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelDataUltimoAtendimento))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -480,10 +487,12 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
             // Leitura do pac_telrec
             String pac_telrec = jTextFieldTelRec.getText();
             // Leitura do pac_end
-            String pac_end = jTextFieldEnd.getText();         
+            String pac_end = jTextFieldEnd.getText();        
+            // Leitura data do ultimo atendimento
+            String  pac_ultatend = jLabelDataUltimoAtendimento.getText();
             
             int pac_id = 0;
-            paciente = new Paciente(pac_id, pac_nome, pac_telcel,pac_telres, pac_telcom, pac_telrec, pac_end);
+            paciente = new Paciente(pac_id, pac_nome, pac_telcel,pac_telres, pac_telcom, pac_telrec, pac_end, pac_ultatend);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -525,6 +534,7 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelDataUltimoAtendimento;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

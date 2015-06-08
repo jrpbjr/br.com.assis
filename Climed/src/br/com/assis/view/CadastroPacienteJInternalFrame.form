@@ -77,7 +77,11 @@
                                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                                       <Component id="jButtonInsere" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jTextField1" min="-2" pref="85" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jTextField1" min="-2" pref="85" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jLabelDataUltimoAtendimento" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <Component id="jTextFieldNome" max="32767" attributes="0"/>
@@ -153,6 +157,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelDataUltimoAtendimento" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
@@ -338,6 +343,11 @@
             <Component class="javax.swing.JButton" name="jButton2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hist&#xf3;rico de Consulta"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelDataUltimoAtendimento">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jLabel26"/>
               </Properties>
             </Component>
           </SubComponents>

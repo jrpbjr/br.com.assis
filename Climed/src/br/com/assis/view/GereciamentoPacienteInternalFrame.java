@@ -5,7 +5,14 @@
  */
 package br.com.assis.view;
 
+
+import br.com.assis.dao.PacienteDaoImpl;
+import br.com.assis.model.Paciente;
+import br.com.assis.table.PacienteTableModel;
+import br.com.assis.table.PacienteCellRenderer;
+import br.com.assis.util.ClimedException;
 import static br.com.assis.view.ClimedMDIApplication.desktopPaneMdi;
+import java.util.List;
 
 /**
  *
@@ -13,14 +20,20 @@ import static br.com.assis.view.ClimedMDIApplication.desktopPaneMdi;
  */
 public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFrame {
 
+    
+    private List<Paciente> pacienteList;
+    private Long idPaciente;
+    
+    private PacienteTableModel pacientetablemodel;
     /**
      * Creates new form PacienteFrame
      */
     CadastroPacienteJInternalFrame CadastroPaciente = null;    
     CadastroUsuarioJInternalFrame CadastroUsuario = null;
     
-    public GereciamentoPacienteInternalFrame() {
+    public GereciamentoPacienteInternalFrame() throws ClimedException {
         initComponents();
+        preencherTabelaPaciente();
     }
 
     /**
@@ -214,6 +227,26 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
         this.dispose();
     }//GEN-LAST:event_sairButtonActionPerformed
 
+    private void preencherTabelaPaciente() throws ClimedException{
+    PacienteDaoImpl dao = new PacienteDaoImpl();
+    pacienteList =  dao.getAllPaciente();
+    
+    /*
+    if (pacienteList != null){
+        this.pacientetablemodel = new PacienteTableModel(pacienteList);
+        this.jTablePaciente.setModel(pacientetablemodel);
+        jTablePaciente.setDefaultRenderer(Object.class, new PacienteCellRenderer());
+    } 
+    */
+    
+    if (dao.getAllPaciente() != null){
+        this.pacientetablemodel = new PacienteTableModel(dao.getAllPaciente());
+        this.jTablePaciente.setModel(pacientetablemodel);
+        jTablePaciente.setDefaultRenderer(Object.class, new PacienteCellRenderer());
+    } 
+    
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
        //PacienteInternalFrame obj = new PacienteInternalFrame();

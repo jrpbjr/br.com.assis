@@ -31,8 +31,9 @@ public class Paciente {
   private  String  pac_email;
   private  String  pac_conv;
   private  String  pac_cart;
-  private  String  pac_obs;
+  private  String  pac_obs; */  
   private  String  pac_ultatend;
+  /*
   private  String  pac_Indicacao;
   private  String  pac_PriConsulta;
   private  String  pac_ep;
@@ -55,7 +56,7 @@ public class Paciente {
    * 
    * 
    * @param pac_end
-   * 
+   * @param pac_ultatend
    * 
    * 
    * 
@@ -68,8 +69,8 @@ public class Paciente {
    * 
    * 
    */
-public Paciente(int pac_id,String  pac_nome, String  pac_telcel,String  pac_telres, String  pac_telcom, String  pac_telrec, String  pac_end){
-        this(pac_nome, pac_telcel,pac_telres, pac_telcom, pac_telrec, pac_end);
+public Paciente(int pac_id,String  pac_nome, String  pac_telcel,String  pac_telres, String  pac_telcom, String  pac_telrec, String  pac_end,String  pac_ultatend){
+        this(pac_nome, pac_telcel,pac_telres, pac_telcom, pac_telrec, pac_end, pac_ultatend);
         this.pac_id = pac_id;
 }
 
@@ -82,18 +83,28 @@ public Paciente(int pac_id,String  pac_nome, String  pac_telcel,String  pac_telr
      * @param pac_telres     
      * @param pac_telcom     
      * @param pac_telrec     
-     * @param pac_end     
+     * @param pac_end  
+     * @param pac_ultatend
  
  */
-public Paciente(String  pac_nome, String  pac_telcel,String  pac_telres, String  pac_telcom, String  pac_telrec, String  pac_end)
+public Paciente(String  pac_nome, String  pac_telcel,String  pac_telres, String  pac_telcom, String  pac_telrec, String  pac_end, String  pac_ultatend)
     {        
         this.pac_nome       = pac_nome;
         this.pac_telcel     = pac_telcel;
         this.pac_telres     = pac_telres;
         this.pac_telcom     = pac_telcom;
         this.pac_telrec     = pac_telrec;
-        this.pac_end        = pac_end;       
+        this.pac_end        = pac_end;  
+        this.pac_ultatend   = pac_ultatend;
 
+    }
+
+    public String getPac_ultatend() {
+        return pac_ultatend;
+    }
+
+    public void setPac_ultatend(String pac_ultatend) {
+        this.pac_ultatend = pac_ultatend;
     }
 
     public void setPac_telres(String pac_telres) {

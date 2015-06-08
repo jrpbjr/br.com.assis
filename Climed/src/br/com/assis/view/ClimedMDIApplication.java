@@ -5,6 +5,10 @@
  */
 package br.com.assis.view;
 
+import br.com.assis.util.ClimedException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Jose
@@ -203,7 +207,11 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
        if (evt.getSource() == cadpacienteMenuItem) {
             
                 if (Paciente == null) {
-                Paciente = new GereciamentoPacienteInternalFrame();
+                    try {
+                        Paciente = new GereciamentoPacienteInternalFrame();
+                    } catch (ClimedException ex) {
+                        Logger.getLogger(ClimedMDIApplication.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 desktopPaneMdi.add(Paciente);
                 Paciente.setVisible(true);
                 }
@@ -211,7 +219,11 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
                 desktopPaneMdi.moveToFront(Paciente);
                 
                if (Paciente.isClosed()) {
-                    Paciente = new GereciamentoPacienteInternalFrame();
+                    try {
+                        Paciente = new GereciamentoPacienteInternalFrame();
+                    } catch (ClimedException ex) {
+                        Logger.getLogger(ClimedMDIApplication.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     desktopPaneMdi.add(Paciente);
                     Paciente.setVisible(true);
                     desktopPaneMdi.moveToFront(Paciente);
