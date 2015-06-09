@@ -491,8 +491,10 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
             // Leitura data do ultimo atendimento
             String  pac_ultatend = jLabelDataUltimoAtendimento.getText();
             
+            String  pac_Telefone = null;
+            
             int pac_id = 0;
-            paciente = new Paciente(pac_id, pac_nome, pac_telcel,pac_telres, pac_telcom, pac_telrec, pac_end, pac_ultatend);
+            paciente = new Paciente(pac_id, pac_nome, pac_Telefone, pac_telcel,pac_telres, pac_telcom, pac_telrec, pac_end, pac_ultatend);
         } catch (Exception e) {
             e.printStackTrace();
         }

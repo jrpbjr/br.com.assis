@@ -13,6 +13,7 @@ public class Paciente {
     //(primeiro) label pac_nome, pac_telcel, pac_telres, pac_telcom, pac_telrec, pac_end
   private  int     pac_id;
   private  String  pac_nome;
+  private  String  pac_Telefone;
   private  String  pac_telcel;  
   private  String  pac_telres;
   private  String  pac_telcom;
@@ -48,6 +49,7 @@ public class Paciente {
    * 
    * @param pac_id
    * @param pac_nome
+   * @param pac_Telefone
    * @param pac_telcel
    * @param pac_telres
    * @param pac_telcom
@@ -69,8 +71,9 @@ public class Paciente {
    * 
    * 
    */
-public Paciente(int pac_id,String  pac_nome, String  pac_telcel,String  pac_telres, String  pac_telcom, String  pac_telrec, String  pac_end,String  pac_ultatend){
-        this(pac_nome, pac_telcel,pac_telres, pac_telcom, pac_telrec, pac_end, pac_ultatend);
+  
+public Paciente(int pac_id,String  pac_nome,String pac_Telefone, String  pac_telcel,String  pac_telres, String  pac_telcom, String  pac_telrec, String  pac_end,String  pac_ultatend){
+        this(pac_nome, pac_Telefone, pac_telcel,pac_telres, pac_telcom, pac_telrec, pac_end, pac_ultatend);
         this.pac_id = pac_id;
 }
 
@@ -79,6 +82,7 @@ public Paciente(int pac_id,String  pac_nome, String  pac_telcel,String  pac_telr
      * atribuido depois, como por exemplo quando e necessario criar o Paciente
      * para salvar no banco de dados, onde o id e gerado automaticamente.
      * @param pac_nome
+     * @param pac_Telefone
      * @param pac_telcel     
      * @param pac_telres     
      * @param pac_telcom     
@@ -87,7 +91,7 @@ public Paciente(int pac_id,String  pac_nome, String  pac_telcel,String  pac_telr
      * @param pac_ultatend
  
  */
-public Paciente(String  pac_nome, String  pac_telcel,String  pac_telres, String  pac_telcom, String  pac_telrec, String  pac_end, String  pac_ultatend)
+public Paciente(String  pac_nome,String pac_Telefone, String  pac_telcel,String  pac_telres, String  pac_telcom, String  pac_telrec, String  pac_end, String  pac_ultatend)
     {        
         this.pac_nome       = pac_nome;
         this.pac_telcel     = pac_telcel;
@@ -96,7 +100,16 @@ public Paciente(String  pac_nome, String  pac_telcel,String  pac_telres, String 
         this.pac_telrec     = pac_telrec;
         this.pac_end        = pac_end;  
         this.pac_ultatend   = pac_ultatend;
+        this.pac_Telefone   = pac_Telefone;
 
+    }
+
+    public String getPac_Telefone() {
+        return pac_Telefone;
+    }
+
+    public void setPac_Telefone(String pac_Telefone) {
+        this.pac_Telefone = pac_Telefone;
     }
 
     public String getPac_ultatend() {
@@ -168,7 +181,7 @@ public Paciente(String  pac_nome, String  pac_telcel,String  pac_telres, String 
     @Override
     public String toString(){
         String paciente = " Paciente_id [" + this.pac_id + "]";
-        paciente += this.pac_nome + "\t TELCEL (" + this.pac_telcel + " ) \t";
+        paciente += this.pac_nome + "\t TELEFONES (" + this.pac_Telefone + " ) \t";
         paciente += "- End: {" + this.pac_end + "}";
         return paciente;        
     }    

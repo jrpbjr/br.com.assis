@@ -82,7 +82,7 @@ public class PacienteTableModel extends AbstractTableModel{
         } else if   (columnIndex == COL_NOME ){
             return paciente.getPac_nome();
         } else if   (columnIndex == COL_TELEFONE){ 
-            return paciente.getPac_telcel();
+            return paciente.getPac_Telefone();
         } else if (columnIndex == COL_DATA_ULTIMO_ATENTIMENTO) {
             return paciente.getPac_ultatend();
         }        

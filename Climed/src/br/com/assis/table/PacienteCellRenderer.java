@@ -32,9 +32,9 @@ public class PacienteCellRenderer extends DefaultTableCellRenderer{
         }
 
         table.getColumnModel().getColumn(0).setMaxWidth(50);
-        table.getColumnModel().getColumn(1).setMaxWidth(400);
+        table.getColumnModel().getColumn(1).setMaxWidth(600);
         table.getColumnModel().getColumn(2).setMaxWidth(500);
-        table.getColumnModel().getColumn(3).setMaxWidth(200);
+        table.getColumnModel().getColumn(3).setMaxWidth(130);
 
         return this;
     }
