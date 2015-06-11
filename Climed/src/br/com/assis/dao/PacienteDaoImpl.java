@@ -152,9 +152,10 @@ public class PacienteDaoImpl implements IPacienteDao {
        }
     
     @Override
-    public void salvar_paciente(Paciente paciente) throws ClimedException {
+    public int salvar_paciente(Paciente paciente) throws ClimedException {
         Connection conn = null;
 		PreparedStatement stmt = null;
+                int result = 0;
 		try {
 			// Abertura da conexao
                         //(primeiro) label pac_nome, pac_telcel, pactelres, pac_telcom, pac_telrec, pac_end
@@ -175,7 +176,8 @@ public class PacienteDaoImpl implements IPacienteDao {
 			stmt.setString(6, paciente.getPac_end());
                         
 			// Executar a operacao de gravar os dados na base
-			stmt.executeUpdate();
+			result = stmt.executeUpdate();
+                        
 		} catch (SQLException e) {
 			throw new ClimedException(
 					"Nao foi possivel salvar o paciente na base de dados.", e);
@@ -183,7 +185,7 @@ public class PacienteDaoImpl implements IPacienteDao {
 			// Fechamento da Connection e Statement
 			ConnectionManager.closeAll(conn, stmt);
 		}
-        
+        return result;
     }
    
 

@@ -6,6 +6,7 @@
 package br.com.assis.view;
 
 
+import br.com.assis.Controller.PacienteController;
 import br.com.assis.dao.PacienteDaoImpl;
 import br.com.assis.model.Paciente;
 import br.com.assis.table.PacienteTableModel;
@@ -230,9 +231,17 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
     }//GEN-LAST:event_sairButtonActionPerformed
 
     private void preencherTabelaPaciente() throws ClimedException{
-    PacienteDaoImpl dao = new PacienteDaoImpl();
-    pacienteList =  dao.getAllPaciente();
+    /*
+        PacienteDaoImpl dao = new PacienteDaoImpl();
+        pacienteList =  dao.getAllPaciente();
+    */
+    pacienteList = new PacienteController().getAllPaciente();
+        
+        if (pacienteList != null) {
+            jTablePaciente.setModel(new PacienteTableModel(pacienteList));
+            jTablePaciente.setDefaultRenderer(Object.class, new PacienteCellRenderer());
     
+        }
     /*
     if (pacienteList != null){
         this.pacientetablemodel = new PacienteTableModel(pacienteList);
@@ -240,13 +249,14 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
         jTablePaciente.setDefaultRenderer(Object.class, new PacienteCellRenderer());
     } 
     */
-    
+    /*
     if (dao.getAllPaciente() != null){
         this.pacientetablemodel = new PacienteTableModel(dao.getAllPaciente());
         this.jTablePaciente.setModel(pacientetablemodel);
         jTablePaciente.setDefaultRenderer(Object.class, new PacienteCellRenderer());
     } 
-    
+    */
+            
     }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

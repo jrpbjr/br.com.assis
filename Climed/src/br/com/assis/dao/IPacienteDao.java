@@ -16,9 +16,10 @@ public interface IPacienteDao {
     /**
      *
      * @param paciente
+     * @return 
      * @throws ClimedException
      */
-    public abstract void salvar_paciente(Paciente paciente) throws ClimedException;
+    public abstract int salvar_paciente(Paciente paciente) throws ClimedException;
     
     /**
      *
