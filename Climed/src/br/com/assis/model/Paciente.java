@@ -19,7 +19,7 @@ public class Paciente {
   private  String  pac_telcom;
   private  String  pac_telrec;  
   private  String  pac_end;
-  /*
+  
   private  String  pac_bai;
   private  String  pac_cid;
   private  String  pac_uf;
@@ -32,9 +32,10 @@ public class Paciente {
   private  String  pac_email;
   private  String  pac_conv;
   private  String  pac_cart;
-  private  String  pac_obs; */  
+  private  String  pac_obs; 
+  
   private  String  pac_ultatend;
-  /*
+  
   private  String  pac_Indicacao;
   private  String  pac_PriConsulta;
   private  String  pac_ep;
@@ -43,7 +44,7 @@ public class Paciente {
   private  String  pac_consulta;
   private  String  pac_HPMA;
   private  String  pac_OBSmed;
-  private  String  pac_QD;*/
+  private  String  pac_QD;
 
   /***
    * 
@@ -72,8 +73,18 @@ public class Paciente {
    * 
    */
   
-public Paciente(int pac_id,String  pac_nome,String pac_Telefone, String  pac_telcel,String  pac_telres, String  pac_telcom, String  pac_telrec, String  pac_end,String  pac_ultatend){
-        this(pac_nome, pac_Telefone, pac_telcel,pac_telres, pac_telcom, pac_telrec, pac_end, pac_ultatend);
+public Paciente(int pac_id,
+                String  pac_nome,
+                String  pac_Telefone,
+                String  pac_telcel,
+                String  pac_telres, 
+                String  pac_telcom, 
+                String  pac_telrec, 
+                String  pac_end,
+                String  pac_bai,
+                String  pac_ultatend){
+    
+        this(pac_nome, pac_Telefone, pac_telcel,pac_telres, pac_telcom, pac_telrec, pac_end, pac_bai, pac_ultatend);
         this.pac_id = pac_id;
 }
 
@@ -88,21 +99,33 @@ public Paciente(int pac_id,String  pac_nome,String pac_Telefone, String  pac_tel
      * @param pac_telcom     
      * @param pac_telrec     
      * @param pac_end  
+     * @param pac_bai  
      * @param pac_ultatend
  
  */
-public Paciente(String  pac_nome,String pac_Telefone, String  pac_telcel,String  pac_telres, String  pac_telcom, String  pac_telrec, String  pac_end, String  pac_ultatend)
+public Paciente(String  pac_nome,
+                String  pac_Telefone,
+                String  pac_telcel,
+                String  pac_telres,
+                String  pac_telcom,
+                String  pac_telrec,
+                String  pac_end,
+                String  pac_bai,
+                String  pac_ultatend)
     {        
         this.pac_nome       = pac_nome;
         this.pac_telcel     = pac_telcel;
         this.pac_telres     = pac_telres;
         this.pac_telcom     = pac_telcom;
         this.pac_telrec     = pac_telrec;
-        this.pac_end        = pac_end;  
+        this.pac_end        = pac_end; 
+        this.pac_bai        = pac_bai;
         this.pac_ultatend   = pac_ultatend;
         this.pac_Telefone   = pac_Telefone;
 
     }
+
+      
 
     public String getPac_Telefone() {
         return pac_Telefone;
@@ -167,8 +190,16 @@ public Paciente(String  pac_nome,String pac_Telefone, String  pac_telcel,String 
     public void setPac_telcel(String pac_telcel) {
         this.pac_telcel = pac_telcel;
     }
-    
 
+    public String getPac_bai() {
+        return pac_bai;
+    }
+
+    public void setPac_bai(String pac_bai) {
+        this.pac_bai = pac_bai;
+    }
+    
+    
     public String getPac_end() {
         return pac_end;
     }

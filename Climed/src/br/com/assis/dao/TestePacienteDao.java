@@ -84,7 +84,9 @@ public class TestePacienteDao {
             
             System.out.print("pac_end do paciente: ");
             // Leitura do pac_end 
-            String pac_end = Teclado.le();  
+            String pac_end = Teclado.le(); 
+            // Leitura do pac_bai
+            String pac_bai = Teclado.le();
             
             System.out.print("pac_ultatend do paciente");
             //Leitura do pac_ultatend
@@ -94,7 +96,16 @@ public class TestePacienteDao {
             //leitura de todos os telefones
             String  pac_Telefone = Teclado.le();
             int pac_id = 0;
-            paciente = new Paciente(pac_id, pac_nome, pac_Telefone, pac_telcel,pac_telres, pac_telcom, pac_telrec, pac_end, pac_ultatend);
+            paciente = new Paciente(pac_id,
+                                  pac_nome,
+                              pac_Telefone, 
+                                pac_telcel,
+                                pac_telres,
+                                pac_telcom,
+                                pac_telrec,
+                                   pac_end,
+                                   pac_bai,
+                               pac_ultatend);
         } catch (Exception e) {
             e.printStackTrace();
         }

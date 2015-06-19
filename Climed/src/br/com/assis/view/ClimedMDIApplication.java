@@ -5,6 +5,7 @@
  */
 package br.com.assis.view;
 
+import br.com.assis.desktoppane.ImagelDesktopPane;
 import br.com.assis.util.ClimedException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,13 +16,18 @@ import java.util.logging.Logger;
  */
 public class ClimedMDIApplication extends javax.swing.JFrame {
 
+     private ImagelDesktopPane imgPanel; 
+     private static final String BASE_PATH = "/br/com/assis/img/";
+    
     /**
      * Creates new form ClimedMDIApplication
      */
     GereciamentoPacienteInternalFrame Paciente = null;
     
     public ClimedMDIApplication() {
-        initComponents();
+        imgPanel = new ImagelDesktopPane(getClass().getResource((ClimedMDIApplication.BASE_PATH + "background.jpg")));
+        initComponents(); 
+        desktopPaneMdi.add(imgPanel);
     }
 
     /**

@@ -31,5 +31,9 @@ public class PacienteFacade {
     public List<Paciente> getAllPaciente() throws ClimedException{
         return dao.getAllPaciente();
     }
+    
+    public Paciente getPacienteById(int pac_id) throws ClimedException{
+         return dao.getPacienteById(pac_id);
+    }
      
 }

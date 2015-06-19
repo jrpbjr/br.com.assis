@@ -28,4 +28,8 @@ public class PacienteController {
         return facade.getAllPaciente();
     }
     
+    public Paciente getPacienteById(int pac_id) throws ClimedException{
+        return facade.getPacienteById(pac_id);
+    }
+    
 }

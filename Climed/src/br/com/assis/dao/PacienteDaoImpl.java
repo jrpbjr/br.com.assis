@@ -60,10 +60,10 @@ public class PacienteDaoImpl implements IPacienteDao {
     private final static String UPDATE_PACIENTE      = "UPDATE tblpaciente SET pac_nome = ? WHERE pac_id = '";
     private final static String DELETE_PACIENTE      = "DELETE FROM tblpaciente WHERE pac_telcel = '";
    
-    private final static String GET_ALL_PACIENTES    = "SELECT pac_id, pac_nome, concat('Cel: ',pac_telcel,' Res: ', pac_telres,' Com: ', pac_telcom,' Rec: ', pac_telrec) as pac_telefone, pac_telcel, pac_telres, pac_telcom, pac_telrec, pac_end, pac_ultatend FROM tblpaciente limit 25";
-    private final static String GET_PACIENTE_BY_CEL  = "SELECT pac_id, pac_nome, concat('Cel: ',pac_telcel,' Res: ', pac_telres,' Com: ', pac_telcom,' Rec: ', pac_telrec) as pac_telefone, pac_telcel, pac_telres, pac_telcom, pac_telrec, pac_end, pac_ultatend FROM tblpaciente WHERE pac_telcel = ?";
-    private final static String GET_PACIENTE_TABLE   = "SELECT pac_id, pac_nome, concat('Cel: ',pac_telcel,' Res: ', pac_telres,' Com: ', pac_telcom,' Rec: ', pac_telrec) as pac_telefone, pac_telcel, pac_telres, pac_telcom, pac_telrec, pac_end, pac_ultatend FROM tblpaciente limit 25";
-    private final static String GET_PACIENTE_BY_ID   = "SELECT pac_id, pac_nome, concat('Cel: ',pac_telcel,' Res: ', pac_telres,' Com: ', pac_telcom,' Rec: ', pac_telrec) as pac_telefone, pac_telcel, pac_telres, pac_telcom, pac_telrec, pac_end, pac_ultatend FROM tblpaciente WHERE pac_id = ?";
+    private final static String GET_ALL_PACIENTES    = "SELECT pac_id, pac_nome, concat('Cel: ',pac_telcel,' Res: ', pac_telres,' Com: ', pac_telcom,' Rec: ', pac_telrec) as pac_telefone, pac_telcel, pac_telres, pac_telcom, pac_telrec, pac_end, pac_bai, pac_ultatend FROM tblpaciente limit 25";
+    private final static String GET_PACIENTE_BY_CEL  = "SELECT pac_id, pac_nome, concat('Cel: ',pac_telcel,' Res: ', pac_telres,' Com: ', pac_telcom,' Rec: ', pac_telrec) as pac_telefone, pac_telcel, pac_telres, pac_telcom, pac_telrec, pac_end, pac_bai, pac_ultatend FROM tblpaciente WHERE pac_telcel = ?";
+    private final static String GET_PACIENTE_TABLE   = "SELECT pac_id, pac_nome, concat('Cel: ',pac_telcel,' Res: ', pac_telres,' Com: ', pac_telcom,' Rec: ', pac_telrec) as pac_telefone, pac_telcel, pac_telres, pac_telcom, pac_telrec, pac_end, pac_bai, pac_ultatend FROM tblpaciente limit 25";
+    private final static String GET_PACIENTE_BY_ID   = "SELECT pac_id, pac_nome, concat('Cel: ',pac_telcel,' Res: ', pac_telres,' Com: ', pac_telcom,' Rec: ', pac_telrec) as pac_telefone, pac_telcel, pac_telres, pac_telcom, pac_telrec, pac_end, pac_bai, pac_ultatend FROM tblpaciente WHERE pac_id = ?";
     
     private final static String DELETE_PACIENTE_ID  = "DELETE FROM tblpaciente WHERE pac_id = '";
     
@@ -215,10 +215,20 @@ public class PacienteDaoImpl implements IPacienteDao {
                                 String pac_telcom   = rs.getString("pac_telcom");
                                 String pac_telrec   = rs.getString("pac_telrec");
 				String pac_end      = rs.getString("pac_end");
+                                String pac_bai      = rs.getString("pac_bai");
                                 String pac_ultatend = rs.getString("pac_ultatend");
                                 
 				// criacao do cliente
-				Paciente p = new Paciente(pac_id, pac_nome,pac_Telefone, pac_telcel,pac_telres, pac_telcom, pac_telrec, pac_end, pac_ultatend);
+				Paciente p = new Paciente(pac_id,
+                                                        pac_nome,
+                                                    pac_Telefone,
+                                                      pac_telcel,
+                                                      pac_telres,
+                                                      pac_telcom,
+                                                      pac_telrec,
+                                                         pac_end,
+                                                         pac_bai,
+                                                    pac_ultatend);
 				// adicao do cliente na lista
 				paciente.add(p);
 			}
@@ -260,6 +270,7 @@ public class PacienteDaoImpl implements IPacienteDao {
                                                         rs.getString("pac_telcom"),
                                                         rs.getString("pac_telrec"),
                                                         rs.getString("pac_end"),
+                                                        rs.getString("pac_bai"),
                                                         rs.getString("pac_ultatend"));
 			}
 		} catch (SQLException e) {
@@ -298,6 +309,7 @@ public class PacienteDaoImpl implements IPacienteDao {
                                                         rs.getString("pac_telcom"),
                                                         rs.getString("pac_telrec"),
                                                         rs.getString("pac_end"),
+                                                        rs.getString("pac_bai"),
                                                         rs.getString("pac_ultatend"));
 			}
 		} catch (SQLException e) {

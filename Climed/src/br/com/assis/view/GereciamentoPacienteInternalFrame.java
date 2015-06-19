@@ -14,6 +14,8 @@ import br.com.assis.table.PacienteCellRenderer;
 import br.com.assis.util.ClimedException;
 import static br.com.assis.view.ClimedMDIApplication.desktopPaneMdi;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,7 +25,7 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
 
     
     private List<Paciente> pacienteList;
-    private Long idPaciente;
+    private int idPaciente;
     
     private PacienteTableModel pacientetablemodel;
     /**
@@ -193,6 +195,11 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
                 return canEdit [columnIndex];
             }
         });
+        jTablePaciente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTablePacienteMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTablePaciente);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -313,6 +320,63 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
        //obj.setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTablePacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePacienteMouseClicked
+        // TODO add your handling code here:
+        
+        if (evt.getSource() == jTablePaciente){
+            
+            if (CadastroPaciente == null){
+            CadastroPaciente = new CadastroPacienteJInternalFrame();
+            desktopPaneMdi.add(CadastroPaciente);
+            CadastroPaciente.setVisible(true);
+            }
+            
+            desktopPaneMdi.moveToFront(CadastroPaciente);
+            
+            if(CadastroPaciente.isClosed()){
+            CadastroPaciente = new CadastroPacienteJInternalFrame();
+            desktopPaneMdi.add(CadastroPaciente);
+            CadastroPaciente.setVisible(true);
+            desktopPaneMdi.moveToFront(CadastroPaciente);
+            }
+            
+        }
+        
+         
+        
+        enabledFields(false);
+        
+       
+        int result = 0;
+        int rowIndex = jTablePaciente.getSelectedRow();
+        
+        Paciente paciente = new PacienteTableModel(pacienteList).get(rowIndex);
+        idPaciente = paciente.getPac_id();
+        
+        
+        
+        try {
+            paciente = new PacienteController().getPacienteById(idPaciente);
+        } catch (ClimedException ex) {
+            Logger.getLogger(GereciamentoPacienteInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        CadastroPaciente.jLabelIdPaciente.setText(String.valueOf(paciente.getPac_id()));
+        
+        CadastroPaciente.jTextFieldNome.setText(paciente.getPac_nome());
+        CadastroPaciente.jTextFieldTelCel.setText(paciente.getPac_telcel());
+        CadastroPaciente.jTextTelRes.setText(paciente.getPac_telres());
+        CadastroPaciente.jTextFieldTelCom.setText(paciente.getPac_telcom());
+        CadastroPaciente.jTextFieldTelRec.setText(paciente.getPac_telrec());
+        CadastroPaciente.jTextFieldEnd.setText(paciente.getPac_end());
+        
+        CadastroPaciente.jLabelDataUltimoAtendimento.setText(String.valueOf(paciente.getPac_ultatend()));
+        CadastroPaciente.jTextFieldBairro.setText(paciente.getPac_bai());
+        
+        // convenio
+        //CadastroPaciente.jTextFieldCarteira.setText(paciente.);
+    }//GEN-LAST:event_jTablePacienteMouseClicked
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -329,4 +393,26 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton sairButton;
     // End of variables declaration//GEN-END:variables
+
+    private void enabledFields(boolean b) {
+        CadastroPaciente.jTextFieldNome.setEditable(b); 
+        CadastroPaciente.jTextFieldTelCel.setEditable(b);
+        CadastroPaciente.jTextTelRes.setEditable(b);        
+        CadastroPaciente.jTextFieldTelCom.setEditable(b);
+        CadastroPaciente.jTextFieldTelRec.setEditable(b);
+        CadastroPaciente.jTextFieldEnd.setEditable(b);
+        CadastroPaciente.jTextFieldBairro.setEditable(b);
+        CadastroPaciente.jComboBoxUf.removeAllItems();
+        CadastroPaciente.jComboBoxUf.setEditable(b);
+       
+    }
+    
+    /*
+    private void loadTable(int rowIndex ){
+        
+        
+        
+        CadastroPaciente.jTextFieldNome.setText(paciente.getPac_nome());        
+        CadastroPaciente.jLabelIdPaciente.setText(String.valueOf(paciente.getPac_id()));
+    }*/
 }
