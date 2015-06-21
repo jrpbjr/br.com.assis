@@ -60,10 +60,77 @@ public class PacienteDaoImpl implements IPacienteDao {
     private final static String UPDATE_PACIENTE      = "UPDATE tblpaciente SET pac_nome = ? WHERE pac_id = '";
     private final static String DELETE_PACIENTE      = "DELETE FROM tblpaciente WHERE pac_telcel = '";
    
-    private final static String GET_ALL_PACIENTES    = "SELECT pac_id, pac_nome, concat('Cel: ',pac_telcel,' Res: ', pac_telres,' Com: ', pac_telcom,' Rec: ', pac_telrec) as pac_telefone, pac_telcel, pac_telres, pac_telcom, pac_telrec, pac_end, pac_bai, pac_ultatend FROM tblpaciente limit 25";
-    private final static String GET_PACIENTE_BY_CEL  = "SELECT pac_id, pac_nome, concat('Cel: ',pac_telcel,' Res: ', pac_telres,' Com: ', pac_telcom,' Rec: ', pac_telrec) as pac_telefone, pac_telcel, pac_telres, pac_telcom, pac_telrec, pac_end, pac_bai, pac_ultatend FROM tblpaciente WHERE pac_telcel = ?";
-    private final static String GET_PACIENTE_TABLE   = "SELECT pac_id, pac_nome, concat('Cel: ',pac_telcel,' Res: ', pac_telres,' Com: ', pac_telcom,' Rec: ', pac_telrec) as pac_telefone, pac_telcel, pac_telres, pac_telcom, pac_telrec, pac_end, pac_bai, pac_ultatend FROM tblpaciente limit 25";
-    private final static String GET_PACIENTE_BY_ID   = "SELECT pac_id, pac_nome, concat('Cel: ',pac_telcel,' Res: ', pac_telres,' Com: ', pac_telcom,' Rec: ', pac_telrec) as pac_telefone, pac_telcel, pac_telres, pac_telcom, pac_telrec, pac_end, pac_bai, pac_ultatend FROM tblpaciente WHERE pac_id = ?";
+    private final static String GET_ALL_PACIENTES    = "SELECT pac_id,"
+            + " pac_nome,"
+            + " concat('Cel: ',pac_telcel,' Res: ', pac_telres,' Com: ', pac_telcom,' Rec: ', pac_telrec) as pac_telefone,"
+            + " pac_telcel, "
+            + "pac_telres, "
+            + "pac_telcom, "
+            + "pac_telrec, "
+            + "pac_end, "
+            + "pac_bai, "
+            + "pac_uf, "
+            + "pac_cep, "
+            + "pac_rg, "
+            + "DATE_FORMAT(pac_nasc,'%d/%m/%Y') as pac_nasc, "
+            + "pac_prof, "
+            + "pac_estcivil, "
+            + "pac_ultatend "
+            + "FROM tblpaciente limit 25";
+    
+    private final static String GET_PACIENTE_BY_CEL  = "SELECT pac_id, "
+            + "pac_nome, "
+            + "concat('Cel: ',pac_telcel,' Res: ', pac_telres,' Com: ', pac_telcom,' Rec: ', pac_telrec) as pac_telefone, "
+            + "pac_telcel, "
+            + "pac_telres, "
+            + "pac_telcom, "
+            + "pac_telrec, "
+            + "pac_end, "
+            + "pac_bai, "
+            + "pac_uf, "
+            + "pac_cep, "
+            + "pac_rg, "
+            + "DATE_FORMAT(pac_nasc,'%d/%m/%Y') as pac_nasc, "
+            + "pac_prof, "
+            + "pac_estcivil, "
+            + "pac_ultatend "
+            + "FROM tblpaciente WHERE pac_telcel = ?";
+    
+    private final static String GET_PACIENTE_TABLE   = "SELECT pac_id, "
+            + "pac_nome, "
+            + "concat('Cel: ',pac_telcel,' Res: ', pac_telres,' Com: ', pac_telcom,' Rec: ', pac_telrec) as pac_telefone,"
+            + " pac_telcel, "
+            + "pac_telres, "
+            + "pac_telcom, "
+            + "pac_telrec, "
+            + "pac_end, "
+            + "pac_bai, "
+            + "pac_uf, "
+            + "pac_cep, "
+            + "pac_rg, "
+            + "DATE_FORMAT(pac_nasc,'%d/%m/%Y') as pac_nasc, "
+            + "pac_prof, "
+            + "pac_estcivil, "
+            + "pac_ultatend "
+            + "FROM tblpaciente limit 25";
+    
+    private final static String GET_PACIENTE_BY_ID   = "SELECT pac_id, "
+            + "pac_nome,"
+            + " concat('Cel: ',pac_telcel,' Res: ', pac_telres,' Com: ', pac_telcom,' Rec: ', pac_telrec) as pac_telefone, "
+            + "pac_telcel, "
+            + "pac_telres, "
+            + "pac_telcom, "
+            + "pac_telrec, "
+            + "pac_end, "
+            + "pac_bai, "
+            + "pac_uf, "
+            + "pac_cep, "
+            + "pac_rg, "
+            + "DATE_FORMAT(pac_nasc,'%d/%m/%Y') as pac_nasc, "
+            + "pac_prof, "
+            + "pac_estcivil, "
+            + "pac_ultatend "
+            + "FROM tblpaciente WHERE pac_id = ?";
     
     private final static String DELETE_PACIENTE_ID  = "DELETE FROM tblpaciente WHERE pac_id = '";
     
@@ -216,6 +283,12 @@ public class PacienteDaoImpl implements IPacienteDao {
                                 String pac_telrec   = rs.getString("pac_telrec");
 				String pac_end      = rs.getString("pac_end");
                                 String pac_bai      = rs.getString("pac_bai");
+                                String pac_uf       = rs.getString("pac_uf");
+                                String pac_cep      = rs.getString("pac_cep");
+                                String pac_rg       = rs.getString("pac_rg");
+                                String pac_nasc     = rs.getString("pac_nasc");
+                                String pac_prof     = rs.getString("pac_prof");
+                                String pac_estcivil = rs.getString("pac_estcivil");
                                 String pac_ultatend = rs.getString("pac_ultatend");
                                 
 				// criacao do cliente
@@ -227,6 +300,12 @@ public class PacienteDaoImpl implements IPacienteDao {
                                                       pac_telcom,
                                                       pac_telrec,
                                                          pac_end,
+                                                          pac_uf,
+                                                         pac_cep,
+                                                          pac_rg,
+                                                        pac_nasc,
+                                                        pac_prof,
+                                                    pac_estcivil,
                                                          pac_bai,
                                                     pac_ultatend);
 				// adicao do cliente na lista
@@ -270,6 +349,12 @@ public class PacienteDaoImpl implements IPacienteDao {
                                                         rs.getString("pac_telcom"),
                                                         rs.getString("pac_telrec"),
                                                         rs.getString("pac_end"),
+                                                        rs.getString("pac_uf"),
+                                                        rs.getString("pac_cep"),
+                                                        rs.getString("pac_rg"),
+                                                        rs.getString("pac_nasc"),
+                                                        rs.getString("pac_prof"),
+                                                        rs.getString("pac_estcivil"),
                                                         rs.getString("pac_bai"),
                                                         rs.getString("pac_ultatend"));
 			}
@@ -309,6 +394,12 @@ public class PacienteDaoImpl implements IPacienteDao {
                                                         rs.getString("pac_telcom"),
                                                         rs.getString("pac_telrec"),
                                                         rs.getString("pac_end"),
+                                                        rs.getString("pac_uf"),
+                                                        rs.getString("pac_cep"),
+                                                        rs.getString("pac_rg"),
+                                                        rs.getString("pac_nasc"),
+                                                        rs.getString("pac_prof"),
+                                                        rs.getString("pac_estcivil"),
                                                         rs.getString("pac_bai"),
                                                         rs.getString("pac_ultatend"));
 			}

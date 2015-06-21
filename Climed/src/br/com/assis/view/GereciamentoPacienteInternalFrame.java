@@ -7,7 +7,6 @@ package br.com.assis.view;
 
 
 import br.com.assis.Controller.PacienteController;
-import br.com.assis.dao.PacienteDaoImpl;
 import br.com.assis.model.Paciente;
 import br.com.assis.table.PacienteTableModel;
 import br.com.assis.table.PacienteCellRenderer;
@@ -374,8 +373,37 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
         CadastroPaciente.jLabelDataUltimoAtendimento.setText(String.valueOf(paciente.getPac_ultatend()));
         CadastroPaciente.jTextFieldBairro.setText(paciente.getPac_bai());
         
+        CadastroPaciente.jComboBoxUf.addItem(paciente.getPac_uf());
+        
+        CadastroPaciente.jTextFieldRg.setText(paciente.getPac_rg());
+        
+        CadastroPaciente.jFormattedTextFieldDtNasc.setText(paciente.getPac_nasc());
+        CadastroPaciente.jTextFieldProf.setText(paciente.getPac_prof());
+        
+        
+        
+       // for (int i = 0; i < CadastroPaciente.jComboBoxEstCivil.getItemCount(); i++){
+       //     Object item = CadastroPaciente.jComboBoxEstCivil.getItemAt( Integer.parseInt(paciente.getPac_estcivil()));
+       // }
+       
+        
+        Object item = CadastroPaciente.jComboBoxEstCivil.getItemAt(Integer.parseInt(paciente.getPac_estcivil()));        
+        CadastroPaciente.jComboBoxEstCivil.removeAllItems();        
+        CadastroPaciente.jComboBoxEstCivil.addItem(item);
+        
+        
+        //CadastroPaciente.jComboBoxEstCivil.getItemAt( Integer.parseInt(paciente.getPac_estcivil()));
+        
+        //CadastroPaciente.jComboBoxEstCivil.setSelectedIndex(Integer.parseInt(paciente.getPac_estcivil()));
+        
+        CadastroPaciente.jComboBoxEstCivil.setSelectedItem("Separado(a)");
+        
+        CadastroPaciente.jFormattedTextCep.setText(paciente.getPac_cep());
+      
+        
+        
         // convenio
-        //CadastroPaciente.jTextFieldCarteira.setText(paciente.);
+       //CadastroPaciente.jTextFieldCarteira.setText(s);
     }//GEN-LAST:event_jTablePacienteMouseClicked
     
 
@@ -402,11 +430,21 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
         CadastroPaciente.jTextFieldTelRec.setEditable(b);
         CadastroPaciente.jTextFieldEnd.setEditable(b);
         CadastroPaciente.jTextFieldBairro.setEditable(b);
+        
         CadastroPaciente.jComboBoxUf.removeAllItems();
         CadastroPaciente.jComboBoxUf.setEditable(b);
+        
+        CadastroPaciente.jTextFieldRg.setEditable(b);
+        
+        CadastroPaciente.jFormattedTextFieldDtNasc.setEditable(b);
+        CadastroPaciente.jFormattedTextFieldDtNasc.setEditable(b);
+        
+        CadastroPaciente.jFormattedTextCep.setEditable(b);
+        
        
     }
     
+     
     /*
     private void loadTable(int rowIndex ){
         

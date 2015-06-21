@@ -85,8 +85,22 @@ public class TestePacienteDao {
             System.out.print("pac_end do paciente: ");
             // Leitura do pac_end 
             String pac_end = Teclado.le(); 
+            //Leitura do pac_uf
+            String pac_uf = Teclado.le();
+            // Leitura do pac_cep
+            String pac_cep = Teclado.le();
+            // Leitura do pac_rg
+            String pac_rg = Teclado.le();
+            //Leitura do pac_nasc
+            String pac_nasc = Teclado.le();
             // Leitura do pac_bai
             String pac_bai = Teclado.le();
+            
+            // Leitura do pac_prof            
+            String pac_prof = Teclado.le();
+            //Leitra do pac_estcivil
+            String pac_estcivil = Teclado.le();
+            // Leitura do pac_resp
             
             System.out.print("pac_ultatend do paciente");
             //Leitura do pac_ultatend
@@ -104,6 +118,12 @@ public class TestePacienteDao {
                                 pac_telcom,
                                 pac_telrec,
                                    pac_end,
+                                    pac_uf,
+                                   pac_cep,
+                                    pac_rg,
+                                  pac_nasc,
+                                  pac_prof,
+                              pac_estcivil,
                                    pac_bai,
                                pac_ultatend);
         } catch (Exception e) {
