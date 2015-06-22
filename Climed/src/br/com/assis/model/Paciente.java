@@ -63,8 +63,10 @@ public class Paciente {
    * @param pac_uf
    * @param pac_rg
    * @param pac_nasc
-     * @param pac_prof
-     * @param pac_estcivil
+   * @param pac_prof
+   * @param pac_estcivil
+     * @param pac_resp
+     * @param pac_email
    * @param pac_bai
    * @param pac_ultatend
    * 
@@ -94,6 +96,8 @@ public Paciente(int pac_id,
                 String  pac_nasc,
                 String  pac_prof,
                 String  pac_estcivil,
+                String  pac_resp,
+                String  pac_email,
                 String  pac_bai,
                 String  pac_ultatend){
     
@@ -110,6 +114,8 @@ public Paciente(int pac_id,
              pac_nasc,
              pac_prof,
          pac_estcivil,
+             pac_resp,
+            pac_email,
               pac_bai,
           pac_ultatend);
         this.pac_id = pac_id;
@@ -132,6 +138,8 @@ public Paciente(int pac_id,
      * @param pac_nasc  
      * @param pac_prof  
      * @param pac_estcivil  
+     * @param pac_resp  
+     * @param pac_email  
      * @param pac_bai  
      * @param pac_ultatend
  
@@ -149,6 +157,8 @@ public Paciente(String  pac_nome,
                 String  pac_nasc,
                 String  pac_prof,
                 String  pac_estcivil,
+                String  pac_resp,
+                String  pac_email,
                 String  pac_bai,
                 String  pac_ultatend)
     {        
@@ -164,6 +174,8 @@ public Paciente(String  pac_nome,
         this.pac_nasc       = pac_nasc;
         this.pac_prof       = pac_prof;
         this.pac_estcivil   = pac_estcivil;
+        this.pac_resp       = pac_resp;
+        this.pac_email      = pac_email;
         this.pac_bai        = pac_bai;
         this.pac_ultatend   = pac_ultatend;
         this.pac_Telefone   = pac_Telefone;
@@ -299,6 +311,22 @@ public Paciente(String  pac_nome,
 
     public void setPac_estcivil(String pac_estcivil) {
         this.pac_estcivil = pac_estcivil;
+    }
+
+    public String getPac_resp() {
+        return pac_resp;
+    }
+
+    public void setPac_resp(String pac_resp) {
+        this.pac_resp = pac_resp;
+    }
+
+    public String getPac_email() {
+        return pac_email;
+    }
+
+    public void setPac_email(String pac_email) {
+        this.pac_email = pac_email;
     }
    
     

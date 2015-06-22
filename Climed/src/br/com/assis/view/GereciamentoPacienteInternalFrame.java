@@ -391,12 +391,9 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
         CadastroPaciente.jComboBoxEstCivil.removeAllItems();        
         CadastroPaciente.jComboBoxEstCivil.addItem(item);
         
-        
-        //CadastroPaciente.jComboBoxEstCivil.getItemAt( Integer.parseInt(paciente.getPac_estcivil()));
-        
-        //CadastroPaciente.jComboBoxEstCivil.setSelectedIndex(Integer.parseInt(paciente.getPac_estcivil()));
-        
-        CadastroPaciente.jComboBoxEstCivil.setSelectedItem("Separado(a)");
+        CadastroPaciente.jTextFieldResp.setText(paciente.getPac_resp());
+       
+        CadastroPaciente.jTextFieldEmail.setText(paciente.getPac_email());
         
         CadastroPaciente.jFormattedTextCep.setText(paciente.getPac_cep());
       
@@ -439,8 +436,12 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
         CadastroPaciente.jFormattedTextFieldDtNasc.setEditable(b);
         CadastroPaciente.jFormattedTextFieldDtNasc.setEditable(b);
         
-        CadastroPaciente.jFormattedTextCep.setEditable(b);
+         CadastroPaciente.jTextFieldResp.setEditable(b);
         
+        CadastroPaciente.jFormattedTextCep.setEditable(b);
+        CadastroPaciente.jTextFieldEmail.setEditable(b);
+        
+        CadastroPaciente.jTextFieldProf.setEditable(b);
        
     }
     

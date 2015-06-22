@@ -83,7 +83,7 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
         jTextFieldRg = new javax.swing.JTextField();
         jComboBoxEstCivil = new javax.swing.JComboBox();
         jLabel22 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
+        jTextFieldEmail = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         jTextFieldProf = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
@@ -311,8 +311,6 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
 
         jLabel22.setText("E-mail:");
 
-        jTextField14.setText("jTextField14");
-
         jLabel23.setText("Profissão:");
 
         jLabel24.setText("Responsável pelo paciente:");
@@ -362,7 +360,7 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
                                         .addComponent(jLabel21)
                                         .addGap(0, 133, Short.MAX_VALUE))
                                     .addComponent(jComboBoxEstCivil, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                    .addComponent(jTextField14)
+                    .addComponent(jTextFieldEmail)
                     .addComponent(jTextFieldProf)
                     .addComponent(jTextFieldResp)
                     .addComponent(jTextField17)
@@ -419,7 +417,7 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel22)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel23)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -504,6 +502,11 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
             String pac_prof = jTextFieldProf.getText();
             // Leitura do pac_estcivil
             String pac_estcivil = "Solteiro(a)";
+            // Leitura do pac_resp
+            String pac_resp = jTextFieldResp.getText();
+            //Leitura do pac_email
+            String pac_email = jTextFieldEmail.getText();
+            
             //Leitura do pac_bai
             String pac_bai = jTextFieldBairro.getText();
             
@@ -527,6 +530,8 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
                                     pac_nasc,
                                     pac_prof,
                                 pac_estcivil,
+                                    pac_resp,
+                                   pac_email,
                                      pac_bai,
                                 pac_ultatend);
         } catch (Exception e) {
@@ -580,11 +585,11 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField8;
     public javax.swing.JTextField jTextFieldBairro;
     public javax.swing.JTextField jTextFieldCarteira;
+    public javax.swing.JTextField jTextFieldEmail;
     public javax.swing.JTextField jTextFieldEnd;
     public javax.swing.JTextField jTextFieldNome;
     public javax.swing.JTextField jTextFieldProf;

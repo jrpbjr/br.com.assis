@@ -440,7 +440,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <Component id="jTextField14" max="32767" attributes="0"/>
+                          <Component id="jTextFieldEmail" max="32767" attributes="0"/>
                           <Component id="jTextFieldProf" alignment="0" max="32767" attributes="0"/>
                           <Component id="jTextFieldResp" alignment="0" max="32767" attributes="0"/>
                           <Component id="jTextField17" alignment="0" max="32767" attributes="0"/>
@@ -508,7 +508,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextField14" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldEmail" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -668,10 +668,10 @@
                 <Property name="text" type="java.lang.String" value="E-mail:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField14">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField14"/>
-              </Properties>
+            <Component class="javax.swing.JTextField" name="jTextFieldEmail">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel23">
               <Properties>
