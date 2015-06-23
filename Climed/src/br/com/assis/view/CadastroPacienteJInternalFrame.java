@@ -58,12 +58,13 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
         jTextFieldNcarteira = new javax.swing.JTextField();
         jTextFieldTelRec = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextAreaObs = new javax.swing.JTextArea();
         jLabel12 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabelDataUltimoAtendimento = new javax.swing.JLabel();
         jLabelIdPaciente = new javax.swing.JLabel();
         jFormattedTextFieldDtNasc = new javax.swing.JFormattedTextField();
+        jDateChooserConsulta = new com.toedter.calendar.JDateChooser();
         jPanel2 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -89,7 +90,7 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
         jLabel24 = new javax.swing.JLabel();
         jTextFieldResp = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
-        jTextField17 = new javax.swing.JTextField();
+        jTextFieldIndicação = new javax.swing.JTextField();
         jFormattedTextCep = new javax.swing.JFormattedTextField();
 
         setClosable(true);
@@ -139,9 +140,9 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
 
         jTextFieldTelRec.setText("jTextFieldRec");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextAreaObs.setColumns(20);
+        jTextAreaObs.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaObs);
 
         jLabel12.setText("Observação:");
 
@@ -189,10 +190,8 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel5)
-                                        .addComponent(jLabel9))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel9)
+                                    .addGap(407, 421, Short.MAX_VALUE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
@@ -221,7 +220,12 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jDateChooserConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(285, 285, 285)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -240,8 +244,10 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelDataUltimoAtendimento)
                     .addComponent(jFormattedTextFieldDtNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jDateChooserConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -266,8 +272,8 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
                     .addComponent(jTextFieldTelRec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
                 .addGap(4, 4, 4)
                 .addComponent(jButton2))
         );
@@ -315,7 +321,7 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
 
         jLabel25.setText("Indicação:");
 
-        jTextField17.setText("jTextField17");
+        jTextFieldIndicação.setText("jTextField17");
 
         try {
             jFormattedTextCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
@@ -361,7 +367,7 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
                     .addComponent(jTextFieldEmail)
                     .addComponent(jTextFieldProf)
                     .addComponent(jTextFieldResp)
-                    .addComponent(jTextField17)
+                    .addComponent(jTextFieldIndicação)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel13)
                         .addGap(202, 202, 202)
@@ -427,7 +433,7 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel25)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jTextFieldIndicação, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jTabbedPane1.addTab("Parte 02", jPanel2);
@@ -508,6 +514,10 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
             String pac_conv = "PARTICULAR";
             //Leitura do pac_cart
             String pac_cart = jTextFieldNcarteira.getText();
+            //Leitura do pac_obs
+            String pac_obs = jTextAreaObs.getText();
+            //Leitura do pac_Indicacao
+            String pac_Indicacao = jTextFieldIndicação.getText();
             //Leitura do pac_bai
             String pac_bai = jTextFieldBairro.getText();
             
@@ -535,6 +545,8 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
                                    pac_email,
                                     pac_conv,
                                     pac_cart,
+                                     pac_obs,
+                               pac_Indicacao,
                                      pac_bai,                                    
                                 pac_ultatend);
         } catch (Exception e) {
@@ -553,6 +565,7 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
     public javax.swing.JComboBox jComboBoxConvenio;
     public javax.swing.JComboBox jComboBoxEstCivil;
     public javax.swing.JComboBox jComboBoxUf;
+    public com.toedter.calendar.JDateChooser jDateChooserConsulta;
     public javax.swing.JFormattedTextField jFormattedTextCep;
     public javax.swing.JFormattedTextField jFormattedTextFieldDtNasc;
     private javax.swing.JLabel jLabel10;
@@ -586,13 +599,13 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
+    public javax.swing.JTextArea jTextAreaObs;
     private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField8;
     public javax.swing.JTextField jTextFieldBairro;
     public javax.swing.JTextField jTextFieldEmail;
     public javax.swing.JTextField jTextFieldEnd;
+    public javax.swing.JTextField jTextFieldIndicação;
     public javax.swing.JTextField jTextFieldNcarteira;
     public javax.swing.JTextField jTextFieldNome;
     public javax.swing.JTextField jTextFieldProf;

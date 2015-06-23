@@ -12,6 +12,8 @@ import br.com.assis.table.PacienteTableModel;
 import br.com.assis.table.PacienteCellRenderer;
 import br.com.assis.util.ClimedException;
 import static br.com.assis.view.ClimedMDIApplication.desktopPaneMdi;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -404,7 +406,16 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
         
         }
         
+        
         CadastroPaciente.jTextFieldNcarteira.setText(paciente.getPac_cart());
+        CadastroPaciente.jTextAreaObs.setText(paciente.getPac_obs());
+        
+        Date dNow = new Date( );
+      
+        
+        CadastroPaciente.jDateChooserConsulta.setDate(dNow);
+        
+        CadastroPaciente.jTextFieldIndicação.setText(paciente.getPac_Indicacao());
         
         CadastroPaciente.jFormattedTextCep.setText(paciente.getPac_cep());
       
@@ -455,7 +466,12 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
         CadastroPaciente.jComboBoxConvenio.setEditable(b);
         CadastroPaciente.jTextFieldNcarteira.setEditable(b);
         
+        CadastroPaciente.jTextAreaObs.setEditable(b);
+        CadastroPaciente.jTextFieldIndicação.setEditable(b);
+        
         CadastroPaciente.jTextFieldProf.setEditable(b);
+        
+        CadastroPaciente.jDateChooserConsulta.setEnabled(b);
        
     }
     
