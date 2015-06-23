@@ -105,8 +105,15 @@ public class TestePacienteDao {
             // Leitura do pac_email
             String pac_email = Teclado.le();
             System.out.print("pac_ultatend do paciente");
-            //Leitura do pac_ultatend
+             //Leitura do pac_ultatend
             String pac_ultatend = Teclado.le();
+            //Leitura do pac_conv
+            System.out.print("pac_conv do paciente");
+            String pac_conv = Teclado.le();
+            //Leitura do pac_cart
+            System.out.print("pac_cart do paciente");
+            String pac_cart = Teclado.le();
+           
             
             System.out.print("pac_telcel + pac_telres + pac_telcom + pac_telrec todos os telefones");
             //leitura de todos os telefones
@@ -128,6 +135,8 @@ public class TestePacienteDao {
                               pac_estcivil,
                                   pac_resp,
                                  pac_email,
+                                  pac_conv,
+                                  pac_cart,
                                    pac_bai,
                                pac_ultatend);
         } catch (Exception e) {

@@ -77,6 +77,8 @@ public class PacienteDaoImpl implements IPacienteDao {
             + "pac_estcivil, "
             + "pac_resp, "
             + "pac_email, "
+            + "pac_conv, "
+            + "pac_cart, "
             + "pac_ultatend "
             + "FROM tblpaciente limit 25";
     
@@ -97,6 +99,8 @@ public class PacienteDaoImpl implements IPacienteDao {
             + "pac_estcivil, "
             + "pac_resp, "
             + "pac_email, "
+            + "pac_conv, "
+            + "pac_cart, "
             + "pac_ultatend "
             + "FROM tblpaciente WHERE pac_telcel = ?";
     
@@ -117,6 +121,8 @@ public class PacienteDaoImpl implements IPacienteDao {
             + "pac_estcivil, "
             + "pac_resp, "
             + "pac_email, "
+            + "pac_conv, "
+            + "pac_cart, "
             + "pac_ultatend "
             + "FROM tblpaciente limit 25";
     
@@ -137,6 +143,8 @@ public class PacienteDaoImpl implements IPacienteDao {
             + "pac_estcivil, "
             + "pac_resp, "
             + "pac_email, "
+            + "pac_conv, "
+            + "pac_cart, "
             + "pac_ultatend "
             + "FROM tblpaciente WHERE pac_id = ?";
     
@@ -299,6 +307,8 @@ public class PacienteDaoImpl implements IPacienteDao {
                                 String pac_estcivil = rs.getString("pac_estcivil");
                                 String pac_resp     = rs.getString("pac_resp");
                                 String pac_email    = rs.getString("pac_email");
+                                String pac_conv     = rs.getString("pac_conv");
+                                String pac_cart     = rs.getString("pac_cart");
                                 String pac_ultatend = rs.getString("pac_ultatend");
                                 
 				// criacao do cliente
@@ -318,6 +328,8 @@ public class PacienteDaoImpl implements IPacienteDao {
                                                     pac_estcivil,
                                                         pac_resp,
                                                        pac_email,
+                                                        pac_conv,
+                                                        pac_cart,
                                                          pac_bai,
                                                     pac_ultatend);
 				// adicao do cliente na lista
@@ -369,6 +381,8 @@ public class PacienteDaoImpl implements IPacienteDao {
                                                         rs.getString("pac_estcivil"),
                                                         rs.getString("pac_resp"),
                                                         rs.getString("pac_email"),
+                                                        rs.getString("pac_conv"),
+                                                        rs.getString("pac_cart"),
                                                         rs.getString("pac_bai"),
                                                         rs.getString("pac_ultatend"));
 			}
@@ -416,6 +430,8 @@ public class PacienteDaoImpl implements IPacienteDao {
                                                         rs.getString("pac_estcivil"),
                                                         rs.getString("pac_email"),
                                                         rs.getString("pac_resp"),
+                                                        rs.getString("pac_conv"),
+                                                        rs.getString("pac_cart"),
                                                         rs.getString("pac_bai"),
                                                         rs.getString("pac_ultatend"));
 			}

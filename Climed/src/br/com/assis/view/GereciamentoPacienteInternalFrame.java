@@ -387,13 +387,24 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
        // }
        
         
-        Object item = CadastroPaciente.jComboBoxEstCivil.getItemAt(Integer.parseInt(paciente.getPac_estcivil()));        
+        Object itemEstcivil = CadastroPaciente.jComboBoxEstCivil.getItemAt(Integer.parseInt(paciente.getPac_estcivil()));        
         CadastroPaciente.jComboBoxEstCivil.removeAllItems();        
-        CadastroPaciente.jComboBoxEstCivil.addItem(item);
+        CadastroPaciente.jComboBoxEstCivil.addItem(itemEstcivil);
         
         CadastroPaciente.jTextFieldResp.setText(paciente.getPac_resp());
        
         CadastroPaciente.jTextFieldEmail.setText(paciente.getPac_email());
+        
+        if (Integer.parseInt(paciente.getPac_conv()) == 0 ) {
+            CadastroPaciente.jComboBoxConvenio.removeAllItems();
+            CadastroPaciente.jComboBoxConvenio.addItem("PARTICULAR");
+        } else {
+            CadastroPaciente.jComboBoxConvenio.removeAllItems();
+            CadastroPaciente.jComboBoxConvenio.addItem("OUTRA COISA");
+        
+        }
+        
+        CadastroPaciente.jTextFieldNcarteira.setText(paciente.getPac_cart());
         
         CadastroPaciente.jFormattedTextCep.setText(paciente.getPac_cep());
       
@@ -440,6 +451,9 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
         
         CadastroPaciente.jFormattedTextCep.setEditable(b);
         CadastroPaciente.jTextFieldEmail.setEditable(b);
+        
+        CadastroPaciente.jComboBoxConvenio.setEditable(b);
+        CadastroPaciente.jTextFieldNcarteira.setEditable(b);
         
         CadastroPaciente.jTextFieldProf.setEditable(b);
        
