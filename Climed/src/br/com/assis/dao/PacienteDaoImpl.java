@@ -16,6 +16,7 @@ import java.util.List;
 import br.com.assis.model.Paciente;
 import br.com.assis.util.ClimedException;
 import br.com.assis.factory.ConnectionManager;
+import java.util.Date;
 
 /**
  *
@@ -81,6 +82,7 @@ public class PacienteDaoImpl implements IPacienteDao {
             + "pac_cart, "
             + "pac_obs, "
             + "pac_Indicacao, "
+            + "DATE_FORMAT(pac_PriConsulta,'%d/%m/%dy') as pac_PriConsulta, "
             + "pac_ultatend "
             + "FROM tblpaciente limit 25";
     
@@ -105,6 +107,7 @@ public class PacienteDaoImpl implements IPacienteDao {
             + "pac_cart, "
             + "pac_obs, "
             + "pac_Indicacao, "
+            + "DATE_FORMAT(pac_PriConsulta,'%d/%m/%y') as pac_PriConsulta, "
             + "pac_ultatend "
             + "FROM tblpaciente WHERE pac_telcel = ?";
     
@@ -129,6 +132,7 @@ public class PacienteDaoImpl implements IPacienteDao {
             + "pac_cart, "
             + "pac_obs, "
             + "pac_Indicacao, "
+            + "DATE_FORMAT(pac_PriConsulta,'%d/%m/%y') as pac_PriConsulta, "
             + "pac_ultatend "
             + "FROM tblpaciente limit 25";
     
@@ -144,7 +148,7 @@ public class PacienteDaoImpl implements IPacienteDao {
             + "pac_uf, "
             + "pac_cep, "
             + "pac_rg, "
-            + "DATE_FORMAT(pac_nasc,'%d/%m/%Y') as pac_nasc, "
+            + "DATE_FORMAT(pac_nasc,'%d/%m/%y') as pac_nasc, "
             + "pac_prof, "
             + "pac_estcivil, "
             + "pac_resp, "
@@ -153,6 +157,7 @@ public class PacienteDaoImpl implements IPacienteDao {
             + "pac_cart, "
             + "pac_obs, "
             + "pac_Indicacao, "
+            + "DATE_FORMAT(pac_PriConsulta,'%d/%m/%y') as pac_PriConsulta, "
             + "pac_ultatend "
             + "FROM tblpaciente WHERE pac_id = ?";
     
@@ -319,6 +324,7 @@ public class PacienteDaoImpl implements IPacienteDao {
                                 String pac_cart     = rs.getString("pac_cart");
                                 String pac_obs      = rs.getString("pac_obs");
                                 String pac_Indicacao= rs.getString("pac_Indicacao");
+                                String pac_PriConsulta = rs.getString("pac_PriConsulta");
                                 String pac_ultatend = rs.getString("pac_ultatend");
                                 
 				// criacao do cliente
@@ -342,6 +348,7 @@ public class PacienteDaoImpl implements IPacienteDao {
                                                         pac_cart,
                                                          pac_obs,
                                                    pac_Indicacao,
+                                                 pac_PriConsulta,
                                                          pac_bai,
                                                     pac_ultatend);
 				// adicao do cliente na lista
@@ -397,6 +404,7 @@ public class PacienteDaoImpl implements IPacienteDao {
                                                         rs.getString("pac_cart"),
                                                         rs.getString("pac_obs"),
                                                         rs.getString("pac_Indicacao"),
+                                                        rs.getString("pac_PriConsulta"),
                                                         rs.getString("pac_bai"),
                                                         rs.getString("pac_ultatend"));
 			}
@@ -448,6 +456,7 @@ public class PacienteDaoImpl implements IPacienteDao {
                                                         rs.getString("pac_cart"),
                                                         rs.getString("pac_obs"),
                                                         rs.getString("pac_Indicacao"),
+                                                        rs.getString("pac_PriConsulta"),
                                                         rs.getString("pac_bai"),
                                                         rs.getString("pac_ultatend"));
 			}

@@ -8,6 +8,8 @@ package br.com.assis.view;
 import br.com.assis.model.Paciente;
 import br.com.assis.dao.PacienteDaoImpl;
 import br.com.assis.util.ClimedException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -42,7 +44,6 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButtonInsere = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldNome = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -68,14 +69,14 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        jTextFieldVlConsulta = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jTextFieldEnd = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jTextFieldBairro = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
+        jTextFieldCidade = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -112,23 +113,13 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel5.setText("Nome:");
-
-        jTextFieldNome.setText("jTextField2");
 
         jLabel6.setText("Tel Cel:");
 
         jLabel7.setText("Tel Res:");
 
         jLabel8.setText("Tel Com:");
-
-        jTextFieldTelCel.setText("jTextField3");
-
-        jTextTelRes.setText("jTextField4");
-
-        jTextFieldTelCom.setText("jTextField5");
 
         jLabel9.setText("Convênio:");
 
@@ -137,8 +128,6 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
         jLabel11.setText("Tel Rec:");
 
         jComboBoxConvenio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PARTICULAR" }));
-
-        jTextFieldTelRec.setText("jTextFieldRec");
 
         jTextAreaObs.setColumns(20);
         jTextAreaObs.setRows(5);
@@ -163,18 +152,14 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabelCod)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelIdPaciente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabelCod)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabelIdPaciente)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2)
-                                .addGap(70, 70, 70))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)))
+                            .addComponent(jDateChooserConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(60, 60, 60)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jFormattedTextFieldDtNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -223,9 +208,7 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jDateChooserConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(285, 285, 285)))
+                        .addGap(285, 567, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -240,15 +223,14 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
                     .addComponent(jButtonInsere)
                     .addComponent(jLabelIdPaciente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelDataUltimoAtendimento)
-                    .addComponent(jFormattedTextFieldDtNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelDataUltimoAtendimento)
+                        .addComponent(jFormattedTextFieldDtNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jDateChooserConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addGap(10, 10, 10)
                 .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -273,7 +255,7 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel12)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
                 .addGap(4, 4, 4)
                 .addComponent(jButton2))
         );
@@ -284,21 +266,13 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
 
         jLabel14.setText("Valor da Consulta:");
 
-        jTextField8.setText("jTextField8");
-
         jButton3.setText("Insere");
 
         jLabel15.setText("Endereço:");
 
-        jTextFieldEnd.setText("jTextField9");
-
         jLabel16.setText("Bairro:");
 
         jLabel17.setText("Cidade:");
-
-        jTextFieldBairro.setText("jTextField10");
-
-        jTextField11.setText("jTextField11");
 
         jLabel18.setText("CEP:");
 
@@ -320,8 +294,6 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
         jLabel24.setText("Responsável pelo paciente:");
 
         jLabel25.setText("Indicação:");
-
-        jTextFieldIndicação.setText("jTextField17");
 
         try {
             jFormattedTextCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
@@ -353,7 +325,7 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
                         .addGap(68, 68, 68)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel17)
-                            .addComponent(jTextField11)
+                            .addComponent(jTextFieldCidade)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel20)
@@ -373,7 +345,7 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
                         .addGap(202, 202, 202)
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldVlConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -392,7 +364,7 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(jLabel14)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldVlConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3))
                 .addGap(32, 32, 32)
                 .addComponent(jLabel15)
@@ -405,7 +377,7 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
@@ -518,6 +490,12 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
             String pac_obs = jTextAreaObs.getText();
             //Leitura do pac_Indicacao
             String pac_Indicacao = jTextFieldIndicação.getText();
+            //Leitura do pac_PriConsulta 
+             Date dNow = new Date( );
+             SimpleDateFormat sdfr = new SimpleDateFormat("dd/MM/yyyy");
+             
+            String pac_PriConsulta = sdfr.format( dNow );
+            
             //Leitura do pac_bai
             String pac_bai = jTextFieldBairro.getText();
             
@@ -547,6 +525,7 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
                                     pac_cart,
                                      pac_obs,
                                pac_Indicacao,
+                               pac_PriConsulta,
                                      pac_bai,                                    
                                 pac_ultatend);
         } catch (Exception e) {
@@ -561,7 +540,6 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonInsere;
-    private javax.swing.JComboBox jComboBox1;
     public javax.swing.JComboBox jComboBoxConvenio;
     public javax.swing.JComboBox jComboBoxEstCivil;
     public javax.swing.JComboBox jComboBoxUf;
@@ -600,9 +578,8 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     public javax.swing.JTextArea jTextAreaObs;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField8;
     public javax.swing.JTextField jTextFieldBairro;
+    private javax.swing.JTextField jTextFieldCidade;
     public javax.swing.JTextField jTextFieldEmail;
     public javax.swing.JTextField jTextFieldEnd;
     public javax.swing.JTextField jTextFieldIndicação;
@@ -614,6 +591,7 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
     public javax.swing.JTextField jTextFieldTelCel;
     public javax.swing.JTextField jTextFieldTelCom;
     public javax.swing.JTextField jTextFieldTelRec;
+    private javax.swing.JTextField jTextFieldVlConsulta;
     public javax.swing.JTextField jTextTelRes;
     // End of variables declaration//GEN-END:variables
 }

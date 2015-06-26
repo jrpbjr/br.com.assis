@@ -13,6 +13,7 @@ import br.com.assis.model.Paciente;
 //import br.com.assis.dao.PacienteDaoImpl;
 import br.com.assis.util.ClimedException;
 import br.com.assis.util.Teclado;
+import java.util.Date;
 
 /**
  *
@@ -121,6 +122,8 @@ public class TestePacienteDao {
             String pac_Indicacao = Teclado.le();
             
             //Leitura do pac_PriConsulta
+            System.out.print("pac_PriConsulta do paciente");
+            Date dNow = new Date( );
             String pac_PriConsulta = Teclado.le();
             
             System.out.print("pac_telcel + pac_telres + pac_telcom + pac_telrec todos os telefones");
@@ -147,6 +150,7 @@ public class TestePacienteDao {
                                   pac_cart,
                                    pac_obs,
                              pac_Indicacao,
+                            pac_PriConsulta,
                                    pac_bai,
                                pac_ultatend);
         } catch (Exception e) {

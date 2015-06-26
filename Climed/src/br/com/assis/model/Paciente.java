@@ -5,6 +5,8 @@
  */
 package br.com.assis.model;
 
+import java.util.Date;
+
 /**
  *
  * @author jr
@@ -38,6 +40,7 @@ public class Paciente {
   
   private  String  pac_Indicacao;
   private  String  pac_PriConsulta;
+  /*
   private  String  pac_ep;
   private  String  pac_hd;
   private  String  pac_cd;
@@ -45,7 +48,8 @@ public class Paciente {
   private  String  pac_HPMA;
   private  String  pac_OBSmed;
   private  String  pac_QD;
-
+*/
+  
   /***
    * 
    * @param pac_id
@@ -70,7 +74,8 @@ public class Paciente {
    * @param pac_conv
    * @param pac_cart
    * @param pac_obs
-     * @param pac_Indicacao
+   * @param pac_Indicacao
+   * @param pac_PriConsulta
    * @param pac_bai
    * @param pac_ultatend
    * 
@@ -106,6 +111,7 @@ public Paciente(int pac_id,
                 String  pac_cart,
                 String  pac_obs,
                 String  pac_Indicacao,
+                String  pac_PriConsulta,
                 String  pac_bai,
                 String  pac_ultatend){
     
@@ -127,7 +133,8 @@ public Paciente(int pac_id,
              pac_conv,
              pac_cart,
               pac_obs,
-        pac_Indicacao,  
+        pac_Indicacao,
+        pac_PriConsulta,
               pac_bai,
           pac_ultatend);
         this.pac_id = pac_id;
@@ -156,6 +163,7 @@ public Paciente(int pac_id,
      * @param pac_cart  
      * @param pac_obs  
      * @param pac_Indicacao  
+     * @param pac_PriConsulta  
      * @param pac_bai  
      * @param pac_ultatend
  
@@ -179,6 +187,7 @@ public Paciente(String  pac_nome,
                 String  pac_cart,
                 String  pac_obs,
                 String  pac_Indicacao,
+                String  pac_PriConsulta,
                 String  pac_bai,
                 String  pac_ultatend)
     {        
@@ -200,6 +209,7 @@ public Paciente(String  pac_nome,
         this.pac_cart       = pac_cart;
         this.pac_obs        = pac_obs;
         this.pac_Indicacao  = pac_Indicacao;
+        this.pac_PriConsulta = pac_PriConsulta;
         this.pac_bai        = pac_bai;
         this.pac_ultatend   = pac_ultatend;
         this.pac_Telefone   = pac_Telefone;
@@ -383,6 +393,14 @@ public Paciente(String  pac_nome,
 
     public void setPac_Indicacao(String pac_Indicacao) {
         this.pac_Indicacao = pac_Indicacao;
+    }
+
+    public String getPac_PriConsulta() {
+        return pac_PriConsulta;
+    }
+
+    public void setPac_PriConsulta(String pac_PriConsulta) {
+        this.pac_PriConsulta = pac_PriConsulta;
     }
 
       

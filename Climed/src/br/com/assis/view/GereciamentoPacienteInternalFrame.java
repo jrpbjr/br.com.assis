@@ -12,6 +12,7 @@ import br.com.assis.table.PacienteTableModel;
 import br.com.assis.table.PacienteCellRenderer;
 import br.com.assis.util.ClimedException;
 import static br.com.assis.view.ClimedMDIApplication.desktopPaneMdi;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -372,14 +373,48 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
         CadastroPaciente.jTextFieldTelRec.setText(paciente.getPac_telrec());
         CadastroPaciente.jTextFieldEnd.setText(paciente.getPac_end());
         
+       
+        
         CadastroPaciente.jLabelDataUltimoAtendimento.setText(String.valueOf(paciente.getPac_ultatend()));
+        
         CadastroPaciente.jTextFieldBairro.setText(paciente.getPac_bai());
         
         CadastroPaciente.jComboBoxUf.addItem(paciente.getPac_uf());
         
         CadastroPaciente.jTextFieldRg.setText(paciente.getPac_rg());
         
-        CadastroPaciente.jFormattedTextFieldDtNasc.setText(paciente.getPac_nasc());
+        //CadastroPaciente.jFormattedTextFieldDtNasc.setText(paciente.getPac_nasc());
+        
+           //string containing date in one format
+    String strDateNasc = paciente.getPac_nasc();  
+        
+        try
+    {
+      //create SimpleDateFormat object with source string date format
+      SimpleDateFormat NascSource = new SimpleDateFormat("dd/MM/yy");
+     
+      //parse the string into Date object
+      Date date = NascSource.parse(strDateNasc);
+      
+          
+      //create SimpleDateFormat object with desired date format
+      //SimpleDateFormat sdfDestination = new SimpleDateFormat("MM-dd-yyyy hh:mm:ss");
+      SimpleDateFormat NascDestination = new SimpleDateFormat("dd/MM/yyyy");
+     
+      //parse the date into another format
+      strDateNasc = NascDestination.format(date);
+	  
+	   CadastroPaciente.jFormattedTextFieldDtNasc.setText(strDateNasc);
+          
+      System.out.println("Date is converted from dd/MM/yy format to MM-dd-yyyy hh:mm:ss");
+      System.out.println("Converted date is : " + strDateNasc);
+     
+    }
+    catch(ParseException pe)
+    {
+      System.out.println("Parse Exception : " + pe);
+    }
+        
         CadastroPaciente.jTextFieldProf.setText(paciente.getPac_prof());
         
         
@@ -410,10 +445,64 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
         CadastroPaciente.jTextFieldNcarteira.setText(paciente.getPac_cart());
         CadastroPaciente.jTextAreaObs.setText(paciente.getPac_obs());
         
+       /*
         Date dNow = new Date( );
       
         
-        CadastroPaciente.jDateChooserConsulta.setDate(dNow);
+        
+       // SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        
+         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+         
+        
+        Date date;
+        try {
+            System.out.println("direto do bando " + paciente.getPac_PriConsulta());
+            
+            date = formatter.parse(paciente.getPac_PriConsulta());
+            
+            System.out.println("formatado na variavel date " + date);
+             CadastroPaciente.jDateChooserConsulta.setDate(date);
+        } catch (ParseException ex) {
+            Logger.getLogger(GereciamentoPacienteInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        */
+        
+          //string containing date in one format
+    String strDate = paciente.getPac_PriConsulta();  
+        
+        try
+    {
+      //create SimpleDateFormat object with source string date format
+      SimpleDateFormat sdfSource = new SimpleDateFormat("dd/MM/yy");
+     
+      //parse the string into Date object
+      Date date = sdfSource.parse(strDate);
+      
+       Date datey = sdfSource.parse(paciente.getPac_PriConsulta());
+     
+      //create SimpleDateFormat object with desired date format
+      //SimpleDateFormat sdfDestination = new SimpleDateFormat("MM-dd-yyyy hh:mm:ss");
+      SimpleDateFormat sdfDestination = new SimpleDateFormat("dd-MM-yyyy");
+     
+      //parse the date into another format
+      strDate = sdfDestination.format(date);
+      
+      java.util.Date datex = new SimpleDateFormat("dd-MM-yyyy").parse(strDate);
+      
+       CadastroPaciente.jDateChooserConsulta.setDate(datey);
+     
+      System.out.println("Date is converted from dd/MM/yy format to MM-dd-yyyy hh:mm:ss");
+      System.out.println("Converted date is : " + strDate);
+     
+    }
+    catch(ParseException pe)
+    {
+      System.out.println("Parse Exception : " + pe);
+    }
+        
+       
         
         CadastroPaciente.jTextFieldIndicação.setText(paciente.getPac_Indicacao());
         
