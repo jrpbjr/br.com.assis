@@ -96,6 +96,8 @@ public class TestePacienteDao {
             String pac_nasc = Teclado.le();
             // Leitura do pac_bai
             String pac_bai = Teclado.le();
+            // Leitura di pac_cid
+            String pac_cid = Teclado.le();
             
             // Leitura do pac_prof            
             String pac_prof = Teclado.le();
@@ -152,6 +154,7 @@ public class TestePacienteDao {
                              pac_Indicacao,
                             pac_PriConsulta,
                                    pac_bai,
+                                   pac_cid,
                                pac_ultatend);
         } catch (Exception e) {
             e.printStackTrace();

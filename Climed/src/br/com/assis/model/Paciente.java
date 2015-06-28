@@ -77,6 +77,7 @@ public class Paciente {
    * @param pac_Indicacao
    * @param pac_PriConsulta
    * @param pac_bai
+   * @param pac_cid
    * @param pac_ultatend
    * 
    * 
@@ -91,7 +92,7 @@ public class Paciente {
    * 
    */
   
-public Paciente(int pac_id,
+public Paciente(   int  pac_id,
                 String  pac_nome,
                 String  pac_Telefone,
                 String  pac_telcel,
@@ -113,6 +114,7 @@ public Paciente(int pac_id,
                 String  pac_Indicacao,
                 String  pac_PriConsulta,
                 String  pac_bai,
+                String  pac_cid,
                 String  pac_ultatend){
     
         this(pac_nome,
@@ -134,8 +136,9 @@ public Paciente(int pac_id,
              pac_cart,
               pac_obs,
         pac_Indicacao,
-        pac_PriConsulta,
+      pac_PriConsulta,
               pac_bai,
+              pac_cid,
           pac_ultatend);
         this.pac_id = pac_id;
 }
@@ -165,6 +168,7 @@ public Paciente(int pac_id,
      * @param pac_Indicacao  
      * @param pac_PriConsulta  
      * @param pac_bai  
+     * @param pac_cid  
      * @param pac_ultatend
  
  */
@@ -189,30 +193,32 @@ public Paciente(String  pac_nome,
                 String  pac_Indicacao,
                 String  pac_PriConsulta,
                 String  pac_bai,
+                String  pac_cid,
                 String  pac_ultatend)
     {        
-        this.pac_nome       = pac_nome;
-        this.pac_telcel     = pac_telcel;
-        this.pac_telres     = pac_telres;
-        this.pac_telcom     = pac_telcom;
-        this.pac_telrec     = pac_telrec;
-        this.pac_end        = pac_end;
-        this.pac_uf         = pac_uf;
-        this.pac_cep        = pac_cep;
-        this.pac_rg         = pac_rg;
-        this.pac_nasc       = pac_nasc;
-        this.pac_prof       = pac_prof;
-        this.pac_estcivil   = pac_estcivil;
-        this.pac_resp       = pac_resp;
-        this.pac_email      = pac_email;
-        this.pac_conv       = pac_conv;
-        this.pac_cart       = pac_cart;
-        this.pac_obs        = pac_obs;
-        this.pac_Indicacao  = pac_Indicacao;
+        this.pac_nome        = pac_nome;
+        this.pac_telcel      = pac_telcel;
+        this.pac_telres      = pac_telres;
+        this.pac_telcom      = pac_telcom;
+        this.pac_telrec      = pac_telrec;
+        this.pac_end         = pac_end;
+        this.pac_uf          = pac_uf;
+        this.pac_cep         = pac_cep;
+        this.pac_rg          = pac_rg;
+        this.pac_nasc        = pac_nasc;
+        this.pac_prof        = pac_prof;
+        this.pac_estcivil    = pac_estcivil;
+        this.pac_resp        = pac_resp;
+        this.pac_email       = pac_email;
+        this.pac_conv        = pac_conv;
+        this.pac_cart        = pac_cart;
+        this.pac_obs         = pac_obs;
+        this.pac_Indicacao   = pac_Indicacao;
         this.pac_PriConsulta = pac_PriConsulta;
-        this.pac_bai        = pac_bai;
-        this.pac_ultatend   = pac_ultatend;
-        this.pac_Telefone   = pac_Telefone;
+        this.pac_bai         = pac_bai;
+        this.pac_cid         = pac_cid;
+        this.pac_ultatend    = pac_ultatend;
+        this.pac_Telefone    = pac_Telefone;
 
     }
 
@@ -401,6 +407,14 @@ public Paciente(String  pac_nome,
 
     public void setPac_PriConsulta(String pac_PriConsulta) {
         this.pac_PriConsulta = pac_PriConsulta;
+    }
+
+    public String getPac_cid() {
+        return pac_cid;
+    }
+
+    public void setPac_cid(String pac_cid) {
+        this.pac_cid = pac_cid;
     }
 
       

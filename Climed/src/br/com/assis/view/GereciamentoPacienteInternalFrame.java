@@ -508,7 +508,7 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
         
         CadastroPaciente.jFormattedTextCep.setText(paciente.getPac_cep());
       
-        
+        CadastroPaciente.jTextFieldCidade.setText(paciente.getPac_cid());
         
         // convenio
        //CadastroPaciente.jTextFieldCarteira.setText(s);
@@ -559,6 +559,8 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
         CadastroPaciente.jTextFieldIndicação.setEditable(b);
         
         CadastroPaciente.jTextFieldProf.setEditable(b);
+        
+        CadastroPaciente.jTextFieldCidade.setEditable(b);
         
         CadastroPaciente.jDateChooserConsulta.setEnabled(b);
        

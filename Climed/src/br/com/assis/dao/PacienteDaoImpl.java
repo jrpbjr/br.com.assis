@@ -16,7 +16,7 @@ import java.util.List;
 import br.com.assis.model.Paciente;
 import br.com.assis.util.ClimedException;
 import br.com.assis.factory.ConnectionManager;
-import java.util.Date;
+
 
 /**
  *
@@ -70,6 +70,7 @@ public class PacienteDaoImpl implements IPacienteDao {
             + "pac_telrec, "
             + "pac_end, "
             + "pac_bai, "
+            + "pac_cid, "
             + "pac_uf, "
             + "pac_cep, "
             + "pac_rg, "
@@ -95,6 +96,7 @@ public class PacienteDaoImpl implements IPacienteDao {
             + "pac_telrec, "
             + "pac_end, "
             + "pac_bai, "
+            + "pac_cid, "
             + "pac_uf, "
             + "pac_cep, "
             + "pac_rg, "
@@ -120,6 +122,7 @@ public class PacienteDaoImpl implements IPacienteDao {
             + "pac_telrec, "
             + "pac_end, "
             + "pac_bai, "
+            + "pac_cid, "
             + "pac_uf, "
             + "pac_cep, "
             + "pac_rg, "
@@ -145,6 +148,7 @@ public class PacienteDaoImpl implements IPacienteDao {
             + "pac_telrec, "
             + "pac_end, "
             + "pac_bai, "
+            + "pac_cid, "
             + "pac_uf, "
             + "pac_cep, "
             + "pac_rg, "
@@ -312,6 +316,7 @@ public class PacienteDaoImpl implements IPacienteDao {
                                 String pac_telrec   = rs.getString("pac_telrec");
 				String pac_end      = rs.getString("pac_end");
                                 String pac_bai      = rs.getString("pac_bai");
+                                String pac_cid      = rs.getString("pac_cid");
                                 String pac_uf       = rs.getString("pac_uf");
                                 String pac_cep      = rs.getString("pac_cep");
                                 String pac_rg       = rs.getString("pac_rg");
@@ -350,6 +355,7 @@ public class PacienteDaoImpl implements IPacienteDao {
                                                    pac_Indicacao,
                                                  pac_PriConsulta,
                                                          pac_bai,
+                                                         pac_cid,
                                                     pac_ultatend);
 				// adicao do cliente na lista
 				paciente.add(p);
@@ -406,6 +412,7 @@ public class PacienteDaoImpl implements IPacienteDao {
                                                         rs.getString("pac_Indicacao"),
                                                         rs.getString("pac_PriConsulta"),
                                                         rs.getString("pac_bai"),
+                                                        rs.getString("pac_cid"),
                                                         rs.getString("pac_ultatend"));
 			}
 		} catch (SQLException e) {
@@ -458,6 +465,7 @@ public class PacienteDaoImpl implements IPacienteDao {
                                                         rs.getString("pac_Indicacao"),
                                                         rs.getString("pac_PriConsulta"),
                                                         rs.getString("pac_bai"),
+                                                        rs.getString("pac_cid"),
                                                         rs.getString("pac_ultatend"));
 			}
 		} catch (SQLException e) {
