@@ -22,7 +22,7 @@ public class ConnectionManager {
      * 2) Teste esta classe para garantir que esteja funcionando
      */
     private static final String STR_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String DATABASE = "climeddev";
+    private static final String DATABASE = "climedsp";
     private static final String IP = "localhost"; //"192.168.0.1" ;
     private static final String STR_CON = "jdbc:mysql://" + IP + ":3306/" + DATABASE;
     private static final String USER = "root";

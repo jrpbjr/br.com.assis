@@ -18,7 +18,7 @@ import java.sql.SQLException; // classe para tratamento de exceções
 public class ConnectionFactory {
      public Connection getConnection() {
         try {
-            return DriverManager.getConnection("jdbc:mysql://localhost/climeddev","root","zeent5775");
+            return DriverManager.getConnection("jdbc:mysql://localhost/climedsp","root","zeent5775");
         }
         catch(SQLException excecao) {
             throw new RuntimeException(excecao);
