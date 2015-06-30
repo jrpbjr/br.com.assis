@@ -437,13 +437,19 @@ public class CadastroPacienteJInternalFrame extends javax.swing.JInternalFrame {
         //PacienteDao dao = new PacienteDao();
        // dao.adiciona(paciente);
         Paciente paciente = null;
+        
         paciente = lePacienteView();  
+        
         PacienteDaoImpl dao = new PacienteDaoImpl();
+        
+        
         try {
             dao.salvar_paciente(paciente);
         } catch (ClimedException ex) {
             Logger.getLogger(CadastroPacienteJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
         
     }//GEN-LAST:event_jButtonInsereActionPerformed
    
