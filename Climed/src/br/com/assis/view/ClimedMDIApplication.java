@@ -22,7 +22,8 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
     /**
      * Creates new form ClimedMDIApplication
      */
-    GereciamentoPacienteInternalFrame Paciente = null;
+    GereciamentoPacienteInternalFrame           Paciente        = null;
+    GerenciamentoEspecialidadeJInternalFrame    Especialidade   = null;
     
     public ClimedMDIApplication() {
         imgPanel = new ImagelDesktopPane(getClass().getResource((ClimedMDIApplication.BASE_PATH + "background.jpg")));
@@ -135,6 +136,11 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
 
         cadespecialidadeMenuItem.setMnemonic('d');
         cadespecialidadeMenuItem.setText("Especialidade");
+        cadespecialidadeMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadespecialidadeMenuItemActionPerformed(evt);
+            }
+        });
         CadastroMenu.add(cadespecialidadeMenuItem);
 
         menuBar.add(CadastroMenu);
@@ -242,6 +248,27 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_CadastroMenuActionPerformed
+
+    private void cadespecialidadeMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadespecialidadeMenuItemActionPerformed
+        // TODO add your handling code here:
+        if (evt.getSource() == cadespecialidadeMenuItem) {
+            
+                if (Especialidade == null) {
+                    Especialidade = new GerenciamentoEspecialidadeJInternalFrame();
+                desktopPaneMdi.add(Especialidade);
+                Especialidade.setVisible(true);
+                }
+                
+                desktopPaneMdi.moveToFront(Especialidade);
+                
+               if (Especialidade.isClosed()) {
+                   Especialidade = new GerenciamentoEspecialidadeJInternalFrame();
+                    desktopPaneMdi.add(Especialidade);
+                    Especialidade.setVisible(true);
+                    desktopPaneMdi.moveToFront(Especialidade);
+                }
+        }
+    }//GEN-LAST:event_cadespecialidadeMenuItemActionPerformed
 
    
 

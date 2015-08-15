@@ -40,6 +40,8 @@ public class GerenciamentoEspecialidadeJInternalFrame extends javax.swing.JInter
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
+        setClosable(true);
+
         jButton1.setText("Incluir");
 
         jButton2.setText("Excluir");
