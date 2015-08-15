@@ -41,6 +41,7 @@ public class GerenciamentoEspecialidadeJInternalFrame extends javax.swing.JInter
         jTable1 = new javax.swing.JTable();
 
         setClosable(true);
+        setTitle("Gerenciamento Especialidade");
 
         jButton1.setText("Incluir");
 
