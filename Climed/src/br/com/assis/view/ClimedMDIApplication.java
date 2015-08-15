@@ -24,6 +24,7 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
      */
     GereciamentoPacienteInternalFrame           Paciente        = null;
     GerenciamentoEspecialidadeJInternalFrame    Especialidade   = null;
+    GerenciamentoConvenioJInternalFrame         Convenio        = null;
     
     public ClimedMDIApplication() {
         imgPanel = new ImagelDesktopPane(getClass().getResource((ClimedMDIApplication.BASE_PATH + "background.jpg")));
@@ -132,6 +133,11 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
 
         cadconvenioMenuItem.setMnemonic('p');
         cadconvenioMenuItem.setText("Convênio");
+        cadconvenioMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadconvenioMenuItemActionPerformed(evt);
+            }
+        });
         CadastroMenu.add(cadconvenioMenuItem);
 
         cadespecialidadeMenuItem.setMnemonic('d');
@@ -269,6 +275,27 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
                 }
         }
     }//GEN-LAST:event_cadespecialidadeMenuItemActionPerformed
+
+    private void cadconvenioMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadconvenioMenuItemActionPerformed
+        // TODO add your handling code here:
+        if (evt.getSource() == cadconvenioMenuItem) {
+            
+                if (Convenio == null) {
+                    Convenio = new GerenciamentoConvenioJInternalFrame();
+                desktopPaneMdi.add(Convenio);
+                Convenio.setVisible(true);
+                }
+                
+                desktopPaneMdi.moveToFront(Convenio);
+                
+               if (Convenio.isClosed()) {
+                   Convenio = new GerenciamentoConvenioJInternalFrame();
+                    desktopPaneMdi.add(Convenio);
+                    Convenio.setVisible(true);
+                    desktopPaneMdi.moveToFront(Convenio);
+                }
+        }
+    }//GEN-LAST:event_cadconvenioMenuItemActionPerformed
 
    
 
