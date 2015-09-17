@@ -5,12 +5,24 @@
  */
 package br.com.assis.view;
 
+import br.com.assis.Controller.EspecialidadeController;
+import br.com.assis.model.Especialidade;
+import br.com.assis.util.ClimedException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jr
  */
 public class CadastroEspecialidadeJInternalFrame extends javax.swing.JInternalFrame {
 
+     
+     private List<Especialidade> especialidadeFind;   
+    
+     
     /**
      * Creates new form CadastroEspecialidadeJInternalFrame
      */
@@ -29,45 +41,128 @@ public class CadastroEspecialidadeJInternalFrame extends javax.swing.JInternalFr
 
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldNomeEspecialidade = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
 
-        jButton1.setText("jButton1");
+        setClosable(true);
+        setTitle("Cadastro Especialidade");
+
+        jButton1.setText("Insere");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Digite a especialidade.:");
+
+        jButton2.setText("Sair");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldNomeEspecialidade))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(64, 64, 64)
                 .addComponent(jLabel1)
+                .addGap(6, 6, 6)
+                .addComponent(jTextFieldNomeEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      
+                
+         try {
+             especialidadeFind = new EspecialidadeController().findAllEspecialidade(jTextFieldNomeEspecialidade.getText());
+             
+           if (especialidadeFind.isEmpty()){
+                 Especialidade especialidade = leEspecialidadeView();       
+                int resultSalvaEsp = 0;
+                if (especialidade != null){
+
+                try {
+                    resultSalvaEsp = new EspecialidadeController().salvar_especialidade(especialidade);
+
+                } catch (ClimedException ex) {
+                    Logger.getLogger(CadastroEspecialidadeJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(this, "Não consigo inserir no banco de dado!");
+                }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Todos os campos são obrigatórios!");
+                }
+             } else { 
+                 JOptionPane.showMessageDialog(this, "Especialidade Cadastrada");
+                 jTextFieldNomeEspecialidade.setText("");
+             }
+            
+         } catch (ClimedException ex) {
+             Logger.getLogger(CadastroEspecialidadeJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        
+                
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        jTextFieldNomeEspecialidade.setText("");
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+        
+    public Especialidade leEspecialidadeView(){
+        //Leitura dos dados da Especialidade
+        Especialidade especialidade = null;
+        
+        if ( jTextFieldNomeEspecialidade.getText().length() > 0) {
+        
+        try{
+            String  esp_nome    = jTextFieldNomeEspecialidade.getText();
+            int     esp_id      = 0;
+            especialidade       = new Especialidade(esp_id
+                                                    ,esp_nome);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } 
+        }
+        //retorna a Especialidade lida
+        return especialidade;
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextFieldNomeEspecialidade;
     // End of variables declaration//GEN-END:variables
 }

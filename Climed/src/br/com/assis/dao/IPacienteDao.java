@@ -6,7 +6,7 @@
 package br.com.assis.dao;
 import  br.com.assis.util.ClimedException;
 import  br.com.assis.model.Paciente;
-import java.util.List;
+import  java.util.List;
 /**
  *
  * @author jr

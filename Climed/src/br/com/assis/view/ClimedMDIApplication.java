@@ -260,7 +260,11 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
         if (evt.getSource() == cadespecialidadeMenuItem) {
             
                 if (Especialidade == null) {
-                    Especialidade = new GerenciamentoEspecialidadeJInternalFrame();
+                    try {
+                        Especialidade = new GerenciamentoEspecialidadeJInternalFrame();
+                    } catch (ClimedException ex) {
+                        Logger.getLogger(ClimedMDIApplication.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 desktopPaneMdi.add(Especialidade);
                 Especialidade.setVisible(true);
                 }
@@ -268,7 +272,11 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
                 desktopPaneMdi.moveToFront(Especialidade);
                 
                if (Especialidade.isClosed()) {
-                   Especialidade = new GerenciamentoEspecialidadeJInternalFrame();
+                    try {
+                        Especialidade = new GerenciamentoEspecialidadeJInternalFrame();
+                    } catch (ClimedException ex) {
+                        Logger.getLogger(ClimedMDIApplication.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     desktopPaneMdi.add(Especialidade);
                     Especialidade.setVisible(true);
                     desktopPaneMdi.moveToFront(Especialidade);

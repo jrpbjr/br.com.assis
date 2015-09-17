@@ -14,8 +14,7 @@ import javax.swing.table.DefaultTableCellRenderer;
  *
  * @author jr
  */
-public class PacienteCellRenderer extends DefaultTableCellRenderer{
-    
+public class EspecialidadeCellRenderer extends DefaultTableCellRenderer{
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column){
 
@@ -28,14 +27,13 @@ public class PacienteCellRenderer extends DefaultTableCellRenderer{
             //setBackground(Color.CYAN);
         }
         if (isSelected) {
-            setBackground(Color.BLUE);
+            setBackground(Color.LIGHT_GRAY);
         }
-
-        table.getColumnModel().getColumn(0).setMaxWidth(50);
-        table.getColumnModel().getColumn(1).setMaxWidth(600);
-        table.getColumnModel().getColumn(2).setMaxWidth(500);
-        table.getColumnModel().getColumn(3).setMaxWidth(130);
+        
+        table.getColumnModel().getColumn(0).setMaxWidth(500);
+        table.getColumnModel().getColumn(1).setMaxWidth(500);        
 
         return this;
     }
-    }
+        
+}

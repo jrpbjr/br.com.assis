@@ -39,7 +39,7 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
     public GereciamentoPacienteInternalFrame() throws ClimedException {
         initComponents();
         preencherTabelaPaciente();
-    }
+    } 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -239,7 +239,7 @@ public class GereciamentoPacienteInternalFrame extends javax.swing.JInternalFram
         this.dispose();
     }//GEN-LAST:event_sairButtonActionPerformed
 
-    private void preencherTabelaPaciente() throws ClimedException{
+    public void preencherTabelaPaciente() throws ClimedException{
     /*
         PacienteDaoImpl dao = new PacienteDaoImpl();
         pacienteList =  dao.getAllPaciente();

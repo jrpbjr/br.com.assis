@@ -164,7 +164,7 @@ public class TestePacienteDao {
     }
     
     /**
-     * Este metodo e reponsavel por ler o pac_telcel de um paciente digitado pelo usuario, fazendo todas as "perguntas /
+     * Este metodo e responsavel por ler o pac_telcel de um paciente digitado pelo usuario, fazendo todas as "perguntas /
      * interaçoes" necessarias para obtençao dos dados
      * @return 
      */
