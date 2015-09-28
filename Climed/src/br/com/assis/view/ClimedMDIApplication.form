@@ -80,14 +80,28 @@
                 <Property name="text" type="java.lang.String" value="Usu&#xe1;rio"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <Menu class="javax.swing.JMenu" name="jMenuEstoque">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Estoque"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
-              </Events>
-            </MenuItem>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItemEstoProd">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Estoque de Produto"/>
+                  </Properties>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItemGrpProduto">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Grupo de Produto"/>
+                  </Properties>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItemUnitMedida">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Unidade de Medida"/>
+                  </Properties>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator1">
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">

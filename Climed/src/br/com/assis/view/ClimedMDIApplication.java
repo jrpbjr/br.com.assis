@@ -55,7 +55,10 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
         cadconvenioMenuItem = new javax.swing.JMenuItem();
         cadespecialidadeMenuItem = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuEstoque = new javax.swing.JMenu();
+        jMenuItemEstoProd = new javax.swing.JMenuItem();
+        jMenuItemGrpProduto = new javax.swing.JMenuItem();
+        jMenuItemUnitMedida = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -157,13 +160,18 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
         jMenuItem1.setText("Usuário");
         CadastroMenu.add(jMenuItem1);
 
-        jMenuItem2.setText("Estoque");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        CadastroMenu.add(jMenuItem2);
+        jMenuEstoque.setText("Estoque");
+
+        jMenuItemEstoProd.setText("Estoque de Produto");
+        jMenuEstoque.add(jMenuItemEstoProd);
+
+        jMenuItemGrpProduto.setText("Grupo de Produto");
+        jMenuEstoque.add(jMenuItemGrpProduto);
+
+        jMenuItemUnitMedida.setText("Unidade de Medida");
+        jMenuEstoque.add(jMenuItemUnitMedida);
+
+        CadastroMenu.add(jMenuEstoque);
         CadastroMenu.add(jSeparator1);
 
         jMenuItem3.setText("Calendário");
@@ -328,10 +336,6 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cadconvenioMenuItemActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -350,10 +354,13 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
     private javax.swing.JMenuItem grpdespesaMenuItem;
     private javax.swing.JMenuItem grtdespesaMenuItem;
     private javax.swing.JMenuItem horarioMedicoMenuItem;
+    private javax.swing.JMenu jMenuEstoque;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItemEstoProd;
+    private javax.swing.JMenuItem jMenuItemGrpProduto;
+    private javax.swing.JMenuItem jMenuItemUnitMedida;
     private javax.swing.JPanel jPanelInformacao;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JSplitPane jSplitPaneMdi;
