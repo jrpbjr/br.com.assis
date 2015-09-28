@@ -11,6 +11,7 @@ import br.com.assis.util.ClimedException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,11 +23,13 @@ public class CadastroEspecialidadeJInternalFrame extends javax.swing.JInternalFr
      
      private List<Especialidade> especialidadeFind;   
     
+     private GerenciamentoEspecialidadeJInternalFrame pai;
      
     /**
      * Creates new form CadastroEspecialidadeJInternalFrame
      */
-    public CadastroEspecialidadeJInternalFrame() {
+    public CadastroEspecialidadeJInternalFrame(GerenciamentoEspecialidadeJInternalFrame x) {
+        pai = x;
         initComponents();
     }
 
@@ -123,8 +126,9 @@ public class CadastroEspecialidadeJInternalFrame extends javax.swing.JInternalFr
              } else { 
                  JOptionPane.showMessageDialog(this, "Especialidade Cadastrada");
                  jTextFieldNomeEspecialidade.setText("");
+                 
              }
-            
+            pai.preencherTabelaEspecialidade();
          } catch (ClimedException ex) {
              Logger.getLogger(CadastroEspecialidadeJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
          }

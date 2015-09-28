@@ -54,6 +54,11 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
         cadmedicoMenuItem = new javax.swing.JMenuItem();
         cadconvenioMenuItem = new javax.swing.JMenuItem();
         cadespecialidadeMenuItem = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         financeiroMenu = new javax.swing.JMenu();
         grpdespesaMenuItem = new javax.swing.JMenuItem();
         despesaMenuItem = new javax.swing.JMenuItem();
@@ -148,6 +153,24 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
             }
         });
         CadastroMenu.add(cadespecialidadeMenuItem);
+
+        jMenuItem1.setText("Usuário");
+        CadastroMenu.add(jMenuItem1);
+
+        jMenuItem2.setText("Estoque");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        CadastroMenu.add(jMenuItem2);
+        CadastroMenu.add(jSeparator1);
+
+        jMenuItem3.setText("Calendário");
+        CadastroMenu.add(jMenuItem3);
+
+        jMenuItem4.setText("Consulta CID");
+        CadastroMenu.add(jMenuItem4);
 
         menuBar.add(CadastroMenu);
 
@@ -305,6 +328,10 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cadconvenioMenuItemActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -323,7 +350,12 @@ public class ClimedMDIApplication extends javax.swing.JFrame {
     private javax.swing.JMenuItem grpdespesaMenuItem;
     private javax.swing.JMenuItem grtdespesaMenuItem;
     private javax.swing.JMenuItem horarioMedicoMenuItem;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanelInformacao;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JSplitPane jSplitPaneMdi;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem relacompanhamentoMenuItem;

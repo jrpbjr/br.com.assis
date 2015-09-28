@@ -14,6 +14,8 @@ import br.com.assis.table.EspecialidadeTableModel;
 import br.com.assis.util.ClimedException;
 import static br.com.assis.view.ClimedMDIApplication.desktopPaneMdi;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -76,6 +78,11 @@ public class GerenciamentoEspecialidadeJInternalFrame extends javax.swing.JInter
         jButton3.setText("Alterar");
 
         jButton4.setText("Visualizar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Pesquisar");
 
@@ -207,24 +214,33 @@ public class GerenciamentoEspecialidadeJInternalFrame extends javax.swing.JInter
     private void jButtonIncluirEspecialidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirEspecialidadeActionPerformed
         // TODO add your handling code here:
         if (evt.getSource() == jButtonIncluirEspecialidade){
-           CadastroEspecialidade = new CadastroEspecialidadeJInternalFrame();
+           CadastroEspecialidade = new CadastroEspecialidadeJInternalFrame(this);
            desktopPaneMdi.add(CadastroEspecialidade);
            CadastroEspecialidade.setVisible(true);
         }
         desktopPaneMdi.moveToFront(CadastroEspecialidade);
         if(CadastroEspecialidade.isClosed()){
-            CadastroEspecialidade = new CadastroEspecialidadeJInternalFrame();
+            CadastroEspecialidade = new CadastroEspecialidadeJInternalFrame(this);
             desktopPaneMdi.add(CadastroEspecialidade);
             CadastroEspecialidade.setVisible(true);
             desktopPaneMdi.moveToFront(CadastroEspecialidade);  
         }
     }//GEN-LAST:event_jButtonIncluirEspecialidadeActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+     try {
+         // TODO add your handling code here:
+         preencherTabelaEspecialidade();
+     } catch (ClimedException ex) {
+         Logger.getLogger(GerenciamentoEspecialidadeJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
+     }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      *
      * @throws ClimedException
      */
-    private void preencherTabelaEspecialidade() throws ClimedException{
+    public void preencherTabelaEspecialidade() throws ClimedException{
  
     especialidadeList = new EspecialidadeController().getAllEspecialidade();
  
