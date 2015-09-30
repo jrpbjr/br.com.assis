@@ -50,6 +50,7 @@ public class ManutencaoDespesaJInternalFrame extends javax.swing.JInternalFrame 
         jButtonManuTranspConta = new javax.swing.JButton();
 
         setClosable(true);
+        setTitle("Lançamento");
 
         jLabelManuGrpDespesa.setText("Grupo de Despesa:");
 
@@ -239,8 +240,7 @@ public class ManutencaoDespesaJInternalFrame extends javax.swing.JInternalFrame 
                         .addGap(39, 39, 39)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
